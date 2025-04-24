@@ -1,0 +1,38 @@
+<base>
+    <f1
+        equipamento="Arma"
+        nome="m4a1"
+        apelido="M4A1"
+        tipo="Metralhadora"
+        alcance="60m"
+        dano="1d10"
+        danoTipo="Balistico"
+        modos="Automatica, Rajada, Unico"
+        durabilidade="300"
+        carregador="30"
+        municao="7.62mm"
+        volume="2"
+        tracos="{'Duas Mãos'}"
+        aprimoramentos="{'Silenciosa'}"
+        preco="3000"
+        descricao="Uma Arma Foda"
+    >,
+    <f2
+    equipamento="Arma"
+        nome="m4a1"
+        apelido="M4A1"
+        tipo="Metralhadora"
+        alcance="60m"
+        dano="1d10"
+        danoTipo="Balistico"
+        modos="Automatica, Rajada, Unico"
+        durabilidade="300"
+        carregador="30"
+        municao="7.62mm"
+        volume="2"
+        tracos="{'Duas Mãos'}"
+        aprimoramentos="{'Silenciosa'}"
+        preco="3000"
+        descricao="Uma Arma Foda"
+    >
+</base>

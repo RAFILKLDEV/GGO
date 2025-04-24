@@ -1,0 +1,136 @@
+<popup name="modal"
+       align="client"
+       backOpacity="0.3"
+       margins="{left=70,right=70,top=70,bottom=70}">
+    <rectangle align="top"
+               height="30"
+               color="black"
+               padding="{top=5,bottom=5}">
+        <button align="left"
+                width="100"
+                text="Todos" />
+        <button align="left"
+                width="100"
+                text="Classe" />
+        <button align="left"
+                width="100"
+                text="Geral" />
+        <button align="left"
+                width="100"
+                text="Ação" />
+        <label align="left"
+               width="250"
+               horzTextAlign="center"
+               text="Gun Gale Online - RPG" />
+        <label align="left"
+               width="60"
+               text="Pesquisar" />
+        <edit align="left"
+              width="100" />
+        <button align="left"
+                text=">" />
+    </rectangle>
+    <rectangle align="left"
+               width="300"
+               color="#3A3A3A"
+               name="modalBar"
+               padding="{left=5,right=5,top=5,bottom=5}">
+        <rectangle align="top"
+                   height="30"
+                   color="black"
+                   padding="{left=5,right=5,top=5,bottom=5}">
+            <label align="left"
+                   width="100"
+                   text="Habilidade" />
+            <rectangle align="right"
+                       width="30"
+                       color="orange"
+                       padding="{left=5,right=5,top=5,bottom=5}">
+                <label align="client"
+                       horzTextAlign="center"
+                       text="levelRequisite" />
+            </rectangle>
+        </rectangle>
+    </rectangle>
+    <rectangle align="left"
+               color="#2E2E2E"
+               width="800"
+               padding="{left=5,right=5,top=5,bottom=5}">
+        <rectangle align="top"
+                   height="30"
+                   color="black"
+                   padding="{left=5,right=5,top=5,bottom=5}">
+            <label align="left"
+                   width="100"
+                   text="Habilidade" />
+            <rectangle align="right"
+                       width="30"
+                       color="orange"
+                       padding="{left=5,right=5,top=5,bottom=5}">
+                <label align="client"
+                       horzTextAlign="center"
+                       text="1" />
+            </rectangle>
+        </rectangle>
+        <rectangle align="top"
+                   height="30"
+                   color="#3A3A3A"
+                   padding="{left=5,right=5,top=5,bottom=5}">
+            <rectangle align="left"
+                       width="60"
+                       color="darkRed"
+                       padding="{left=5,top=5,right=5,bottom=5}"
+                       margins="{left=5}">
+                <label align="client"
+                       text="Rifle"
+                       horzTextAlign="center" />
+            </rectangle>
+        </rectangle>
+        <rectangle align="top"
+                   height="30"
+                   color="#3A3A3A"
+                   padding="{left=5,right=5,top=5,bottom=5}"
+                   margins="{top=10}">
+            <label align="client"
+                   text="Pré-requisito:"
+                   fontStyle="bold" />
+        </rectangle>
+        <rectangle align="top"
+                   height="30"
+                   color="#3A3A3A"
+                   padding="{left=5,right=5,top=5,bottom=5}">
+            <label align="client"
+                   text="Pré-requisito:" />
+        </rectangle>
+        <rectangle align="top"
+                   height="30"
+                   color="#3A3A3A"
+                   padding="{left=5,right=5,top=5,bottom=5}"
+                   margins="{top=10}">
+            <label align="client"
+                   text="Descrição:"
+                   fontStyle="bold" />
+        </rectangle>
+        <rectangle align="top"
+                   height="30"
+                   color="#3A3A3A"
+                   padding="{left=5,right=5,top=5,bottom=5}">
+            <label align="client"
+                   text="Descrição..." />
+        </rectangle>
+    </rectangle>
+    <rectangle align="bottom"
+               height="30"
+               color="black"
+               padding="{top=5,bottom=5}">
+        <button align="left"
+                width="100"
+                text="Aceitar" />
+        <button align="left"
+                width="100"
+                text="Cancelar" />
+        <button align="left"
+                width="100"
+                text="Limpar" />
+    </rectangle>
+</popup>

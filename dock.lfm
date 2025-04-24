@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="GGO_Dock"
+      formType="tablesDock"
+      dataType="RRPG.DataTypeUnico.DaMinhaJanelaAcoplavel"
+      title="Minha Janela Acoplável">
+    <event name="onNodeReady">        
+        require("ndb.lua");
+        local mesa = Firecast.getRoomOf(sheet);
+        
+        if mesa ~= nil then
+        
+        local chat = mesa.chat;
+        local jogador = mesa.me
+        local login = jogador.login
+        
+        NDB.setPermission(sheet, "user", "MendigoCraazy", "write", "allow");
+        NDB.setPermission(sheet, "user", "MendigoCraazy", "read", "allow");
+        -- local observer = ndb.newObserver(sheet);
+        --  observer.node = sheet.input
+        -- observer.enabled = true
+        
+        -- observer.onChanged =
+        -- function(node, attribute, oldValue)
+        -- showMessage("disparei")
+        -- if login == "RAFILKL" then
+        
+        -- chat:enviarMensagem("/&gt;&gt;")
+        
+        -- end
+        --  end;
+        
+        local room = Firecast.getRoomOf(sheet)
+        local myCode = room.codigoInterno
+        
+        local promise = room:asyncOpenRoomNDB("RRPG.TB.COMBAT.TRACKER.v1")
+        local node = await(promise)
+
+        -- showMessage(tableToStr(node))
+
+        node.rodada = 100
+        
+        
+        end
+        
+    </event>
+    <edit text="Olá Mundo"
+          field="input" />
+</form>

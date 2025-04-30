@@ -1,0 +1,118 @@
+<popup name="modalLevel1"
+       visible="true"
+       width="200"
+       height="325"
+       backOpacity="0.3">
+       <event name="onClose">
+
+              local att = {
+              forca = 0,
+              destreza = 0,
+              constituicao = 0,
+              inteligencia = 0,
+              sabedoria = 0,
+              carisma = 0
+              }
+
+              for idx = 1, 6 do
+
+              if sheet['level1Attr' .. idx] ~= nil then
+
+              if sheet['level1Attr' .. idx] == 'Força' then
+              att.forca = att.forca + 1
+              elseif sheet['level1Attr' .. idx] == 'Destreza' then
+              att.destreza = att.destreza + 1
+              elseif sheet['level1Attr' .. idx] == 'Constituição' then
+              att.constituicao = att.constituicao + 1
+              elseif sheet['level1Attr' .. idx] == 'Inteligência' then
+              att.inteligencia = att.inteligencia + 1
+              elseif sheet['level1Attr' .. idx] == 'Sabedoria' then
+              att.sabedoria = att.sabedoria + 1
+              elseif sheet['level1Attr' .. idx] == 'Carisma' then
+              att.carisma = att.carisma + 1
+
+              end
+
+              end
+
+              end
+
+              local function criarLabelLv1()
+
+              local msg = ""
+
+              if att.forca > 0 then
+              msg = msg .. " For " .. att.forca
+              end
+
+              if att.destreza > 0 then
+              msg = msg .. " Des " .. att.destreza
+              end
+
+              if att.constituicao > 0 then
+              msg = msg .. " Con " .. att.constituicao
+              end
+
+              if att.inteligencia > 0 then
+              msg = msg .. " Int " .. att.inteligencia
+              end
+
+              if att.sabedoria > 0 then
+              msg = msg .. " Sab " .. att.sabedoria
+              end
+
+              if att.carisma > 0 then
+              msg = msg .. " Car " .. att.carisma
+              end
+
+              return msg
+
+              end
+
+
+              sheet.level1Titulo = criarLabelLv1()
+
+              calcularTalentos()
+       </event>
+       <template name="level1Atr">
+              <rectangle align="top"
+                     height="30"
+                     color="#3A3A3A"
+                     padding="{left=5,right=5,top=5,bottom=5}"
+                     margins="{top=5,bottom=5}">
+                     <comboBox align="client"
+                            horzTextAlign="center"
+                            items="{'Força', 'Destreza', 'Constituição', 'Inteligência', 'Sabedoria', 'Carisma'}"
+                            values="{'Força', 'Destreza', 'Constituição', 'Inteligência', 'Sabedoria', 'Carisma'}"
+                            field="$('level1Attr' .. idx)" />
+              </rectangle>
+       </template>
+       <rectangle align="top"
+              height="30"
+              color="black"
+              padding="{top=5,bottom=5}">
+              <label align="client"
+                     horzTextAlign="center"
+                     text="Gun Gale Online - RPG" />
+       </rectangle>
+       <rectangle align="top"
+              color="#2E2E2E"
+              height="40"
+              padding="{left=5,right=5,top=5,bottom=5}"
+              margins="{bottom=5}">
+              <rectangle align="top"
+                     height="30"
+                     color="black"
+                     padding="{left=5,right=5,top=5,bottom=5}">
+                     <label align="client"
+                            text="Atributos Level 1"
+                            horzTextAlign="center" />
+              </rectangle>
+       </rectangle>
+       <level1Atr idx="1" />
+       <level1Atr idx="2" />
+       <level1Atr idx="3" />
+       <level1Atr idx="4" />
+       <level1Atr idx="5" />
+       <level1Atr idx="6" />
+</popup>

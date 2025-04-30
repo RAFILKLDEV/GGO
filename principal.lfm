@@ -1,704 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="GGO_Ficha"
-      title="GGO_Ficha"
-      dataType="GGO_Ficha"
-      formType="sheetTemplate">
-    <import file="modal.xml" />
-    <import file="base.xml" />
-    <rectangle align="left"
-               width="1200"
-               color="blue"
-               padding="{left=7,top=7,right=7,bottom=7}">
-        <import file="talentos.xml" />
-        <rectangle align="left"
-                   width="450"
-                   margins="{right=5}"
-                   padding="{left=5,top=5,right=5,bottom=5}">
-            <layout align="top"
-                    height="50">
-                <layout align="left"
-                        width="260">
-                    <rectangle align="top"
-                               height="45"
-                               color="green"
-                               padding="{left=7,right=3}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="235">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   text="Classe" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      transparent="true"
-                                      text="Especialista" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="green"
-                               name="teste"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   field="level" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="green"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="XP" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-            </layout>
-            <layout align="top"
-                    height="50">
-                <layout align="left"
-                        width="80">
-                    <rectangle align="top"
-                               height="45"
-                               color="green"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="70">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="Deslocamento" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="7.5 m" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="darkRed"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="FOR" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="darkRed"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="DES" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="darkRed"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="CON" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="darkRed"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="INT" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="darkRed"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="SAB" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="50">
-                    <rectangle align="top"
-                               height="45"
-                               color="darkRed"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="40">
-                            <label align="top"
-                                   height="15"
-                                   fontSize="10"
-                                   horzTextAlign="center"
-                                   text="CAR" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="2" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-            </layout>
-            <layout align="top"
-                    height="55">
-                <layout align="left"
-                        width="80">
-                    <rectangle align="top"
-                               height="50"
-                               color="green"
-                               padding="{left=1,right=1}">
-                        <layout align="left"
-                                margins="{left=5}"
-                                width="70">
-                            <label align="top"
-                                   height="20"
-                                   fontSize="12"
-                                   horzTextAlign="center"
-                                   text="CA" />
-                            <rectangle align="top"
-                                       height="25"
-                                       color="#0000001A">
-                                <edit align="client"
-                                      fontSize="14"
-                                      horzTextAlign="center"
-                                      transparent="true"
-                                      text="18" />
-                            </rectangle>
-                        </layout>
-                    </rectangle>
-                </layout>
-                <layout align="left"
-                        margins="{left=5}"
-                        width="150">
-                    <rectangle align="top"
-                               height="50"
-                               color="gray"
-                               padding="{left=1,right=1}">
-                        <progressBar align="top"
-                                     height="15"
-                                     color="red"
-                                     margins="{top=5,bottom=5}"
-                                     value="50"
-                                     max="100" />
-                        <progressBar align="top"
-                                     height="15"
-                                     color="green"
-                                     margins="{top=5,bottom=5}"
-                                     value="50"
-                                     max="100" />
-                    </rectangle>
-                </layout>
-            </layout>
-            <layout align="left"
-                    width="150">
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+11"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Percepção"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}"
-                           margins="{bottom=10}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+0"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Iniciativa"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+11"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Fortitude"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+11"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Reflexo"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}"
-                           margins="{bottom=10}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+0"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Vontade"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+14"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Acrobatics"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+11"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Athletics"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+14"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Deception"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+12"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Diplomacy"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+12"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Intimidation"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+12"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Furtividade"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+12"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Sobrevivencia"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+12"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Conhecimento"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-                <rectangle align="top"
-                           height="30"
-                           color="gray"
-                           padding="{left=5,right=5,bottom=5,top=5}">
-                    <layout align="left"
-                            width="18">
-                        <path align="client"
-                              mode="fit"
-                              color="darkRed"
-                              data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-                        <label align="client"
-                               text="M"
-                               horzTextAlign="center"
-                               fontSize="10"
-                               fontStyle="bold" />
-                    </layout>
-                    <label align="left"
-                           text="+12"
-                           width="25"
-                           margins="{left=5}" />
-                    <label align="left"
-                           text="Guerra"
-                           width="70"
-                           margins="{left=5}" />
-                </rectangle>
-            </layout>
-            <rectangle align="left"
-                       width="500"
-                       padding="{top=-2,left=3}">
-                <tabControl align="client">
-                    <import file="armas.xml" />
-                </tabControl>
-            </rectangle>
-        </rectangle>
-    </rectangle>
+   title="GGO_Ficha"
+   dataType="GGO_Ficha"
+   formType="sheetTemplate">
+   <script>
+
+      local function treinamentoValor(tr)
+
+      if tr == "D" then
+      return 0
+      elseif tr == "T" then
+      return 2
+      elseif tr == "E" then
+      return 4
+      elseif tr == "M" then
+      return 6
+      elseif tr == "L" then
+      return 8
+      end
+
+      end
+
+      local function coresTreinamento()
+
+      local raridade = {"Destreinado", "Treinado", "Especialista", "Mestre", "Lenda"}
+
+      for i = 1, 14 do
+      if sheet["pericia" .. i .. "Tr"] == "T" then
+      self["pericia" .. i].color = "#217a52"
+      elseif sheet["pericia" .. i .. "Tr"] == "E" then
+      self["pericia" .. i].color = "#236fa1"
+      elseif sheet["pericia" .. i .. "Tr"] == "M" then
+      self["pericia" .. i].color = "#6e3b84"
+      elseif sheet["pericia" .. i .. "Tr"] == "L" then
+      self["pericia" .. i].color = "#b58f00"
+      else self["pericia" .. i].color = "#555555"
+      end
+      end
+      end
+
+      local function calcularTalentos()
+
+      sheet.FOR = 0
+      sheet.DES = 0
+      sheet.CON = 0
+      sheet.INT = 0
+      sheet.SAB = 0
+      sheet.CAR = 0
+
+      for i = 1, 6 do
+
+      if sheet["level1Attr" .. i] ~= nil then
+
+      if sheet["level1Attr" .. i] == "Força" then
+      sheet.FOR = sheet.FOR + 1
+      elseif sheet["level1Attr" .. i] == "Destreza" then
+      sheet.DES = sheet.DES + 1
+      elseif sheet["level1Attr" .. i] == "Constituição" then
+      sheet.CON = sheet.CON + 1
+      elseif sheet["level1Attr" .. i] == "Inteligência" then
+      sheet.INT = sheet.INT + 1
+      elseif sheet["level1Attr" .. i] == "Sabedoria" then
+      sheet.SAB = sheet.SAB + 1
+      elseif sheet["level1Attr" .. i] == "Carisma" then
+      sheet.CAR = sheet.CAR + 1
+      end
+
+      end
+
+      end
+
+      for i = 1, 20 do
+
+      if sheet.nodes[i] ~= nil then
+
+      if sheet.nodes[i].tipo == "Classe" then
+
+      if sheet.nodes[i].plus ~= ". . ." and sheet.nodes[i].plus ~= nil then
+
+      if sheet.nodes[i].plus == "Força" then
+      sheet.FOR = sheet.FOR + 1
+      elseif sheet.nodes[i].plus == "Destreza" then
+      sheet.DES = sheet.DES + 1
+      elseif sheet.nodes[i].plus == "Constituição" then
+      sheet.CON = sheet.CON + 1
+      elseif sheet.nodes[i].plus == "Inteligência" then
+      sheet.INT = sheet.INT + 1
+      elseif sheet.nodes[i].plus == "Sabedoria" then
+      sheet.SAB = sheet.SAB + 1
+      elseif sheet.nodes[i].plus == "Carisma" then
+      sheet.CAR = sheet.CAR + 1
+      end
+
+      end
+
+      end
+
+      end
+
+      end
+
+
+      sheet.per_iniciativa = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia1Tr))
+      sheet.per_percepcao = "+" .. (sheet.SAB + sheet.level + treinamentoValor(sheet.pericia2Tr))
+
+      sheet.per_fortitude = "+" .. (sheet.CON + sheet.level + treinamentoValor(sheet.pericia3Tr))
+      sheet.per_reflexo = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia4Tr))
+      sheet.per_vontade = "+" .. (sheet.SAB + sheet.level + treinamentoValor(sheet.pericia5Tr))
+
+      sheet.per_atletismo = "+" .. (sheet.FOR + sheet.level + treinamentoValor(sheet.pericia6Tr))
+      sheet.per_acrobacia = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia7Tr))
+      sheet.per_conhecimento = "+" .. (sheet.INT + sheet.level + treinamentoValor(sheet.pericia8Tr))
+      sheet.per_diplomacia = "+" .. (sheet.CAR + sheet.level + treinamentoValor(sheet.pericia9Tr))
+      sheet.per_enganacao = "+" .. (sheet.CAR + sheet.level + treinamentoValor(sheet.pericia10Tr))
+      sheet.per_furtividade = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia11Tr))
+      sheet.per_guerra = "+" .. (sheet.INT + sheet.level + treinamentoValor(sheet.pericia12Tr))
+      sheet.per_intimidacao = "+" .. (sheet.CAR + sheet.level + treinamentoValor(sheet.pericia13Tr))
+      sheet.per_sobrevivencia = "+" .. (sheet.SAB + sheet.level + treinamentoValor(sheet.pericia14Tr))
+
+      
+
+      coresTreinamento()
+      
+      end
+
+
+   </script>
+   <event name="onNodeReady">
+
+      sheet.nodes = sheet.nodes or {}
+
+      for i = 1, 20 do
+
+      if sheet["ficha" .. i .. "tipo"] == "Classe" then
+      self['ficha' .. i .. 'layout'].height = 115
+      self['ficha' .. i].visible = true
+      end
+
+      end
+
+   </event>
+   <import file="templates.xml" />
+   <import file="modal.xml" />
+   <import file="modalLevel1.xml" />
+   <import file="base.xml" />
+   <rectangle align="left"
+      width="1200"
+      color="#2E2E2E"
+      padding="{left=7,top=7,right=7,bottom=7}">
+      <import file="talentos.xml" />
+      <rectangle align="left"
+         width="450"
+         color="#1C1C1C"
+         margins="{right=5}"
+         padding="{left=5,top=5,right=5,bottom=5}">
+         <import file="nome.xml" />
+         <import file="atributos.xml" />
+         <import file="classeArmadura.xml" />
+
+         <rectangle align="left"
+            width="450"
+            padding="{left=3}"
+            color="#2E2E2E">
+            <tabControl align="client">
+               <import file="armas.xml" />
+            </tabControl>
+         </rectangle>
+      </rectangle>
+      <import file="pericias.xml" />
+      <import file="treinamentos.xml" />
+   </rectangle>
 </form>

@@ -1,0 +1,407 @@
+<layout align="left"
+    width="200">
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}"
+        margins="{bottom=10}">
+        <label align="client"
+            text="Pericias"
+            margins="{left=5}"
+        />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia1"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia1Tr"
+                field="pericia1Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_iniciativa"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Iniciativa"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}"
+        margins="{bottom=10}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia2"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia2Tr"
+                field="pericia2Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_percepcao"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Percepção"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia3"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia3Tr"
+                field="pericia3Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_fortitude"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Fortitude"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia4"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia4Tr"
+                field="pericia4Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_reflexo"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Reflexo"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}"
+        margins="{bottom=10}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia5"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia5Tr"
+                field="pericia5Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_vontade"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Vontade"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia6"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia6Tr"
+                field="pericia6Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_acrobacia"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Acrobacia"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia7"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia7Tr"
+                field="pericia7Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_atletismo"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Atletismo"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia8"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia8Tr"
+                field="pericia8Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_conhecimento"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Conhecimento"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia9"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia9Tr"
+                field="pericia9Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_diplomacia"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Diplomacia"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia10"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia10Tr"
+                field="pericia10Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_enganacao"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Enganação"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia11"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia11Tr"
+                field="pericia11Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_furtividade"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Furtividade"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia12"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia12Tr"
+                field="pericia12Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_guerra"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Guerra"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia13"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+
+            <label align="client"
+                name="pericia13Tr"
+                field="pericia13Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_intimidacao"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Intimidação"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+    <rectangle align="top"
+        height="30"
+        color="#2E2E2E"
+        padding="{left=5,right=5,bottom=5,top=5}">
+        <layout align="left"
+            width="18">
+            <path align="client"
+                mode="fit"
+                name="pericia14"
+                color="darkRed"
+                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
+            <label align="client"
+                name="pericia14Tr"
+                field="pericia14Tr"
+                fontSize="10"
+                horzTextAlign="center"
+                fontStyle="bold" />
+        </layout>
+        <label align="left"
+            field="per_sobrevivencia"
+            width="25"
+            margins="{left=5}" />
+        <label align="left"
+            text="Sobrevivencia"
+            width="130"
+            margins="{left=5}" />
+    </rectangle>
+</layout>

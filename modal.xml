@@ -59,8 +59,7 @@
                    height="30"
                    color="#3A3A3A"
                    name="tracosBar"
-                   padding="{left=5,right=5,top=5,bottom=5}">
-        </rectangle>
+                   padding="{left=5,right=5,top=5,bottom=5}" />
         <rectangle align="top"
                    height="30"
                    color="#3A3A3A"
@@ -100,7 +99,30 @@
                padding="{top=5,bottom=5}">
         <button align="left"
                 width="100"
-                text="Aceitar" />
+                text="Aceitar">
+            <event name="onClick">                
+                sheet["ficha" .. sheet.numeroTalento .. "nome"] = sheet.nomeTalento
+                sheet["ficha" .. sheet.numeroTalento .. "tipo"] = sheet.tipoTalento
+                
+                sheet.nodes[sheet.numeroTalento] = {
+                nome = sheet.nomeTalento,
+                tipo = sheet.tipoTalento,
+                tracos = sheet.tracosTalento,
+                requisito = sheet.requisitoTalento,
+                descricao = sheet.descricaoTalento,
+                plus = ". . ."
+                }
+                
+                if sheet.tipoTalento == "Classe" then
+                self['ficha' .. sheet.numeroTalento .. 'layout'].height = 115
+                self['ficha' .. sheet.numeroTalento].visible = true
+                end
+                
+                calcularTalentos()
+                
+                self.modal:close()
+            </event>
+        </button>
         <button align="left"
                 width="100"
                 text="Cancelar" />

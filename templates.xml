@@ -1,0 +1,347 @@
+<form>
+    <template name="talento">
+        <layout align="top"
+                name="$('ficha' .. n .. 'layout')"
+                height="80"
+                margins="{bottom=5}">
+            <label align="top" height="20" text="$('Level ' .. lv)" />
+            <rectangle align="top"
+                       height="60"
+                       color="#2E2E2E"
+                       padding="{left=7,top=3,right=3,bottom=3}"
+                       strokeSize="1"
+                       strokeColor="#00CFFF">
+                <event name="onClick">                    
+                    require("utils.lua");
+                    require("gui.lua");
+                    local minhaMesa = Firecast.getRoomOf(sheet);
+                    local chat = minhaMesa.chat;
+                    local xml = NDB.load("classesLista.xml");
+                    local arrayTalentos = NDB.getChildNodes(xml);
+                    
+                    talentos = {} -- new array
+                    nomesTalentos = {} -- new array
+                    
+                    for i = 1, #arrayTalentos, 1 do
+                    talentos[i] = xml["f" .. i]
+                    nomesTalentos[i] = xml["f" .. i].nome
+                    end
+                    
+                    table.sort(nomesTalentos)
+                    
+                    local talentosAntigos = self.modalBar:getChildren()
+                    
+                    -- Remove os talentos antigos da interface
+                    for k = 1, #talentosAntigos, 1 do
+                    talentosAntigos[k]:destroy()
+                    end
+                    
+                    table.sort(talentos, function(a, b) return a.apelido &gt; b.apelido end)
+                    
+                    -- Loop para criar os novos talentos
+                    
+                    for k = 1, #talentos, 1 do
+                    -- Passando o valor de k diretamente para a função onClick
+                    local container = GUI.newRectangle()
+                    container.align = "top"
+                    container.height = 30
+                    container.color = "black"
+                    container.padding = {left=5, right=5, top=5, bottom=5}
+                    container.parent = self.modalBar -- substitua pelo pai
+                    
+                    container.onClick = function()
+                    local talentosAntigos = self.modalBar:getChildren()
+                    
+                    -- Desmarcar talentos antigos
+                    for x = 1, #talentosAntigos, 1 do
+                    talentosAntigos[x].strokeSize = 0
+                    end
+                    
+                    -- Marcar o talento selecionado
+                    container.strokeSize = 1
+                    container.strokeColor = "#00CFFF"
+                    sheet.nomeTalento = talentos[k].apelido
+                    sheet.levelTalento = 5
+                    sheet.descricaoTalento = talentos[k].descricao or "Nenhum"
+                    sheet.requisitoTalento = talentos[k].requisito or "Nenhum"
+                    sheet.tipoTalento = talentos[k].tipo or "Nenhum"
+                    sheet.numeroTalento = $(n)
+                    sheet.tracoTalento = talentos[k].tracos
+                    
+                    local tracosBar = self.tracosBar:getChildren()
+                    
+                    -- Remove os traços antigos
+                    for v = 1, #tracosBar, 1 do
+                    tracosBar[v]:destroy()
+                    end
+                    
+                    local tracosTalento = totable(talentos[k].tracos)
+                    
+                    -- Loop para adicionar os traços do talento
+                    for j = 1, #tracosTalento, 1 do
+                    
+                    local text = talentos[k].apelido:gsub("([^%s]+)", "%1 ")
+                    local textWidth = math.max(text:len() * 6.8, 60)  -- 60 é o mínimo, ajuste como quiser
+                    
+                    
+                    local containerTraco = GUI.newRectangle()
+                    containerTraco.align = "left"
+                    containerTraco.color = "darkRed"
+                    containerTraco.width = textWidth
+                    containerTraco.padding = {left=5, top=5, right=5, bottom=5}
+                    containerTraco.margins = {left=5}
+                    containerTraco.parent = self.tracosBar
+                    
+                    local label = GUI.newLabel()
+                    label.align = "client"
+                    label.text = tracosTalento[j]
+                    label.horzTextAlign = "center"
+                    label.parent = containerTraco
+                    
+                    containerTraco["g-dyn-width-txt"] = true
+                    end
+                    end
+                    
+                    -- Margens
+                    if k &lt;= #talentos then
+                    container.margins = {bottom=5}
+                    end
+                    
+                    -- Criar Item Modal
+                    local label = GUI.newLabel()
+                    label.align = "left"
+                    label.width = 100
+                    label.text = talentos[k].apelido
+                    label.parent = container
+                    
+                    local levelBox = GUI.newRectangle()
+                    levelBox.align = "right"
+                    levelBox.width = 30
+                    levelBox.color = "orange"
+                    levelBox.padding = {left=5, right=5, top=5, bottom=5}
+                    levelBox.parent = container
+                    
+                    local levelLabel = GUI.newLabel()
+                    levelLabel.align = "client"
+                    levelLabel.g = "col"
+                    levelLabel["g-dyn-width-txt"] = true
+                    levelLabel.horzTextAlign = "center"
+                    levelLabel.text = 1 -- ou algum valor dinâmico
+                    levelLabel.parent = levelBox
+                    
+                    
+                    end
+                    
+                    sheet.seletorModal = "Level1"
+                    self.modal:show()
+                </event>
+                <rectangle align="left"
+                           width="50"
+                           color="#3A3A3A"
+                           margins="{left=5,top=5,right=5,bottom=5}" />
+                <layout align="left"
+                        margins="{left=5}"
+                        width="300">
+                    <label align="top"
+                           height="20"
+                           field="$('ficha' .. n .. 'tipo')" />
+                    <label align="top"
+                           height="35"
+                           fontSize="26"
+                           field="$('ficha' .. n .. 'nome')" />
+                </layout>
+            </rectangle>
+            <rectangle align="bottom"
+                       height="30"
+                       color="#2E2E2E"
+                       padding="{left=7,top=3,right=7,bottom=3}"
+                       margins="{top=5}"
+                       strokeSize="1"
+                       strokeColor="#00CFFF"
+                       name="$('ficha' .. n)"
+                       visible="false">
+                <event name="onClick">                    
+                    Dialogs.chooseMultiple("Selecione o Aumento de Atributo", {"Força", "Destreza", "Constituição", "Inteligência", "Sabedoria", "Carisma"},
+                    
+                    function(selected, selectedIndexes, selectedTexts)
+                    
+                    if selected then
+                    
+                    sheet["ficha" .. $(n) .. "plus"] = selectedTexts[1]
+                    sheet.nodes[$(n)]["plus"] = selectedTexts[1]
+                    
+                    else
+                    
+                    sheet["ficha" .. $(n) .. "plus"] = ". . ."
+                    sheet.nodes[$(n)]["plus"] = ". . ."
+                    
+                    end;
+                    calcularTalentos()
+                    end)
+                    
+                </event>
+                <layout align="client"
+                        margins="{left=5}"
+                        padding="{left=10,right=10}">
+                    <label align="client"
+                           field="$('ficha' .. n .. 'plus')"
+                           horzTextAlign="center" />
+                </layout>
+            </rectangle>
+        </layout>
+    </template>
+
+    <template name="level1">
+        <layout align="top"
+                name="$('ficha' .. n .. 'layout')"
+                height="60"
+                margins="{bottom=10}">
+            <rectangle align="top"
+                       height="60"
+                       color="#2E2E2E"
+                       padding="{left=7,top=3,right=3,bottom=3}"
+                       strokeSize="1"
+                       strokeColor="#00CFFF">
+                <event name="onClick">                    
+                    require("utils.lua");
+                    require("gui.lua");
+                    local minhaMesa = Firecast.getRoomOf(sheet);
+                    local chat = minhaMesa.chat;
+                    local xml = NDB.load("classesLista.xml");
+                    local arrayTalentos = NDB.getChildNodes(xml);
+                    
+                    talentos = {} -- new array
+                    nomesTalentos = {} -- new array
+                    
+                    for i = 1, #arrayTalentos, 1 do
+                    talentos[i] = xml["f" .. i]
+                    nomesTalentos[i] = xml["f" .. i].nome
+                    end
+                    
+                    table.sort(nomesTalentos)
+                    
+                    local talentosAntigos = self.modalBar:getChildren()
+                    
+                    -- Remove os talentos antigos da interface
+                    for k = 1, #talentosAntigos, 1 do
+                    talentosAntigos[k]:destroy()
+                    end
+                    
+                    table.sort(talentos, function(a, b) return a.apelido &gt; b.apelido end)
+                    
+                    -- Loop para criar os novos talentos
+                    
+                    for k = 1, #talentos, 1 do
+                    -- Passando o valor de k diretamente para a função onClick
+                    local container = GUI.newRectangle()
+                    container.align = "top"
+                    container.height = 30
+                    container.color = "black"
+                    container.padding = {left=5, right=5, top=5, bottom=5}
+                    container.parent = self.modalBar -- substitua pelo pai
+                    
+                    container.onClick = function()
+                    local talentosAntigos = self.modalBar:getChildren()
+                    
+                    -- Desmarcar talentos antigos
+                    for x = 1, #talentosAntigos, 1 do
+                    talentosAntigos[x].strokeSize = 0
+                    end
+                    
+                    -- Marcar o talento selecionado
+                    container.strokeSize = 1
+                    container.strokeColor = "#00CFFF"
+                    sheet.nomeTalento = talentos[k].apelido
+                    sheet.levelTalento = 5
+                    sheet.descricaoTalento = talentos[k].descricao or "Nenhum"
+                    sheet.requisitoTalento = talentos[k].requisito or "Nenhum"
+                    sheet.tipoTalento = talentos[k].tipo or "Nenhum"
+                    sheet.numeroTalento = $(n)
+                    sheet.tracoTalento = talentos[k].tracos
+                    
+                    local tracosBar = self.tracosBar:getChildren()
+                    
+                    -- Remove os traços antigos
+                    for v = 1, #tracosBar, 1 do
+                    tracosBar[v]:destroy()
+                    end
+                    
+                    local tracosTalento = totable(talentos[k].tracos)
+                    
+                    -- Loop para adicionar os traços do talento
+                    for j = 1, #tracosTalento, 1 do
+                    
+                    local text = talentos[k].apelido:gsub("([^%s]+)", "%1 ")
+                    local textWidth = math.max(text:len() * 6.8, 60)  -- 60 é o mínimo, ajuste como quiser
+                    
+                    
+                    local containerTraco = GUI.newRectangle()
+                    containerTraco.align = "left"
+                    containerTraco.color = "darkRed"
+                    containerTraco.width = textWidth
+                    containerTraco.padding = {left=5, top=5, right=5, bottom=5}
+                    containerTraco.margins = {left=5}
+                    containerTraco.parent = self.tracosBar
+                    
+                    local label = GUI.newLabel()
+                    label.align = "client"
+                    label.text = tracosTalento[j]
+                    label.horzTextAlign = "center"
+                    label.parent = containerTraco
+                    
+                    containerTraco["g-dyn-width-txt"] = true
+                    end
+                    end
+                    
+                    -- Margens
+                    if k &lt;= #talentos then
+                    container.margins = {bottom=5}
+                    end
+                    
+                    -- Criar Item Modal
+                    local label = GUI.newLabel()
+                    label.align = "left"
+                    label.width = 100
+                    label.text = talentos[k].apelido
+                    label.parent = container
+                    
+                    local levelBox = GUI.newRectangle()
+                    levelBox.align = "right"
+                    levelBox.width = 30
+                    levelBox.color = "orange"
+                    levelBox.padding = {left=5, right=5, top=5, bottom=5}
+                    levelBox.parent = container
+                    
+                    local levelLabel = GUI.newLabel()
+                    levelLabel.align = "client"
+                    levelLabel.g = "col"
+                    levelLabel["g-dyn-width-txt"] = true
+                    levelLabel.horzTextAlign = "center"
+                    levelLabel.text = 1 -- ou algum valor dinâmico
+                    levelLabel.parent = levelBox
+                    
+                    
+                    end
+                    
+                    sheet.seletorModal = "Level1"
+                    self.modal:show()
+                </event>
+                <rectangle align="left"
+                           width="50"
+                           color="#3A3A3A"
+                           margins="{left=5,top=5,right=5,bottom=5}" />
+                <layout align="left"
+                        margins="{left=5}"
+                        width="300">
+                    <label align="top"
+                           height="20"
+                           field="$('ficha' .. n .. 'tipo')" />
+                    <label align="top"
+                           height="35"
+                           fontSize="26"
+                           field="$('ficha' .. n .. 'nome')" />
+                </layout>
+            </rectangle>
+        </layout>
+    </template>
+</form>

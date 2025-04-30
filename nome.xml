@@ -1,0 +1,82 @@
+<layout align="top"
+    height="50">
+    <layout align="left"
+        width="260">
+        <rectangle align="top"
+            height="45"
+            color="#2E2E2E"
+            padding="{left=7,right=3}">
+            <layout align="left"
+                margins="{left=5}"
+                width="235">
+                <label align="top"
+                    height="15"
+                    fontSize="10"
+                    text="Classe" />
+                <rectangle align="top"
+                    height="25"
+                    color="orange">
+                    <edit align="client"
+                        fontSize="14"
+                        transparent="true"
+                        text="Especialista" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+        margins="{left=5}"
+        width="50">
+        <rectangle align="top"
+            height="45"
+            color="#2E2E2E"
+            name="teste"
+            padding="{left=1,right=1}">
+            <layout align="left"
+                margins="{left=5}"
+                width="40">
+                <label align="top"
+                    height="15"
+                    fontSize="10"
+                    horzTextAlign="center"
+                    text="LV" />
+                <rectangle align="top"
+                    height="25"
+                    color="orange">
+                    <comboBox align="client"
+                        fontSize="14"
+                        horzTextAlign="center"
+                        transparent="true"
+                        field="level" items="{'1', '2', '3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" values="{'1', '2', '3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'}" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+        margins="{left=5}"
+        width="50">
+        <rectangle align="top"
+            height="45"
+            color="#2E2E2E"
+            padding="{left=1,right=1}">
+            <layout align="left"
+                margins="{left=5}"
+                width="40">
+                <label align="top"
+                    height="15"
+                    fontSize="10"
+                    horzTextAlign="center"
+                    text="XP" />
+                <rectangle align="top"
+                    height="25"
+                    color="orange">
+                    <edit align="client"
+                        fontSize="14"
+                        horzTextAlign="center"
+                        transparent="true"
+                        text="2" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+</layout>

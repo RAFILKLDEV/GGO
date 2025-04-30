@@ -1,0 +1,131 @@
+<layout align="top"
+    height="55">
+    <layout align="left"
+        width="80">
+        <rectangle align="top"
+            height="50"
+            color="#2E2E2E"
+            padding="{left=1,right=1}">
+            <layout align="left"
+                margins="{left=5}"
+                width="70">
+                <label align="top"
+                    height="20"
+                    fontSize="12"
+                    horzTextAlign="center"
+                    text="CA" />
+                <rectangle align="top"
+                    height="30"
+                    color="orange">
+                    <edit align="client"
+                        fontSize="14"
+                        horzTextAlign="center"
+                        transparent="true"
+                        text="18" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+        margins="{left=5}"
+        width="150">
+        <rectangle align="top"
+            height="50"
+            color="#2E2E2E"
+            padding="{left=1,right=1}">
+            <progressBar align="top"
+                height="15"
+                color="red"
+                margins="{top=5,bottom=5}"
+                value="50"
+                max="100" />
+            <progressBar align="top"
+                height="15"
+                color="darkGray"
+                margins="{top=5,bottom=5}"
+                value="50"
+                max="100" />
+        </rectangle>
+    </layout>
+    <layout align="left"
+        margins="{left=5}"
+        width="50">
+        <rectangle align="top"
+            height="50"
+            color="#2E2E2E"
+            padding="{left=1,right=1}">
+            <layout align="left"
+                margins="{left=5}"
+                width="40">
+                <label align="top"
+                    height="15"
+                    fontSize="10"
+                    horzTextAlign="center"
+                    text="FORT" />
+                <rectangle align="top"
+                    height="30"
+                    color="orange">
+                    <edit align="client"
+                        fontSize="14"
+                        horzTextAlign="center"
+                        transparent="true"
+                        field="FORT" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+        margins="{left=5}"
+        width="50">
+        <rectangle align="top"
+            height="50"
+            color="#2E2E2E"
+            padding="{left=1,right=1}">
+            <layout align="left"
+                margins="{left=5}"
+                width="40">
+                <label align="top"
+                    height="15"
+                    fontSize="10"
+                    horzTextAlign="center"
+                    text="REF" />
+                <rectangle align="top"
+                    height="30"
+                    color="orange">
+                    <edit align="client"
+                        fontSize="14"
+                        horzTextAlign="center"
+                        transparent="true"
+                        field="REF" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+        margins="{left=5}"
+        width="50">
+        <rectangle align="top"
+            height="50"
+            color="#2E2E2E"
+            padding="{left=1,right=1}">
+            <layout align="left"
+                margins="{left=5}"
+                width="40">
+                <label align="top"
+                    height="15"
+                    fontSize="10"
+                    horzTextAlign="center"
+                    text="VON" />
+                <rectangle align="top"
+                    height="30"
+                    color="orange">
+                    <edit align="client"
+                        fontSize="14"
+                        horzTextAlign="center"
+                        transparent="true"
+                        field="VON" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+</layout>

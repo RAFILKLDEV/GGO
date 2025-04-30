@@ -1,0 +1,191 @@
+<layout align="top"
+        height="50">
+    <layout align="left"
+            width="80">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="70">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="Deslocamento" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          text="7.5 m" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+            margins="{left=5}"
+            width="50">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="40">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="FOR" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          field="FOR" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+            margins="{left=5}"
+            width="50">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="40">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="DES" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          field="DES" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+            margins="{left=5}"
+            width="50">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="40">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="CON" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          field="CON" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+            margins="{left=5}"
+            width="50">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="40">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="INT" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          field="INT" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+            margins="{left=5}"
+            width="50">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="40">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="SAB" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          field="SAB" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+    <layout align="left"
+            margins="{left=5}"
+            width="50">
+        <rectangle align="top"
+                   height="45"
+                   color="#2E2E2E"
+                   padding="{left=1,right=1}">
+            <layout align="left"
+                    margins="{left=5}"
+                    width="40">
+                <label align="top"
+                       height="15"
+                       fontSize="10"
+                       horzTextAlign="center"
+                       text="CAR" />
+                <rectangle align="top"
+                           height="25"
+                           color="orange">
+                    <edit align="client"
+                          fontSize="14"
+                          horzTextAlign="center"
+                          transparent="true"
+                          field="CAR" />
+                </rectangle>
+            </layout>
+        </rectangle>
+    </layout>
+</layout>

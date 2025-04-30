@@ -2,66 +2,77 @@
     <f1 nome="Especialista"
         apelido="Especialista"
         atributos="{'DES','INT'}"
-        tracos="{'Especialista'}"
+        tracos="Especialista"
+        tipo="Classe"
         descricao="Especialista é uma classe Especialista em Equipamentos" />        
         ,
     <f2 nome="Atirador"
         apelido="Atirador"
         atributos="{'DES','SAB'}"
-        tracos="{'Atirador'}"
+        tracos="Atirador"
+        tipo="Classe"
         descricao="Atirador é uma classe focada em Talentos de Ataque com Armas de Fogo" />        
         ,
     <f3 nome="FrancoAtirador"
         apelido="Franco Atirador"
         atributos="{'DES','SAB'}"
-        tracos="{'Franco Atirador'}"
+        tracos="Franco Atirador"
+        tipo="Classe"
         descricao="Franco Atirador é uma classe focada em Ataques Furtivos e de Longa Distância" />        
         ,
     <f4 nome="Lutador"
         apelido="Lutador"
         atributos="{'FOR','CON'}"
-        tracos="{'Lutador'}"
+        tracos="Lutador"
+        tipo="Classe"
         descricao="Lutador é uma classe focada em Talentos de Ataque Corpo a Corpo" />        
         ,
     <f5 nome="Assassino"
         apelido="Assassino"
         atributos="{'DES','FOR'}"
-        tracos="{'Assassino'}"
+        tracos="Assassino"
+        tipo="Classe"
         descricao="Assassino é uma classe focada em Dano Furtivo" />        
         ,
     <f6 nome="Rastreador"
         apelido="Rastreador"
         atributos="{'SAB','INT'}"
-        tracos="{'Rastreador'}"
+        tracos="Rastreador"
+        tipo="Classe"
         descricao="Rastreador é uma classe focada em Rastrear" />        
         ,
     <f7 nome="Velocista"
         apelido="Velocista"
         atributos="{'DES','CON'}"
-        tracos="{'Velocista'}"
+        tracos="Velocista"
+        tipo="Classe"
         descricao="Velocista é uma classe focada em Talentos de Mobilidade" />        
         ,
-    <f8 nome="Tank"
-        apelido="Tank"
+    <f8 nome="Imparavel"
+        apelido="Imparável"
         atributos="{'CON','FOR'}"
-        tracos="{'Tank'}"
-        descricao="Tank é uma classe focada em Talentos de Ataque com Armas de Fogo" />        
+        tracos="Imparavel"
+        tipo="Classe"
+        descricao="Imparável é uma classe focada em Talentos de Ataque com Armas de Fogo" />        
         ,
     <f9 nome="Explosivo"
         apelido="Explosivo"
         atributos="{'CON','FOR'}"
-        tracos="{'Explosivo'}"
+        tracos="Explosivo"
+        tipo="Classe"
         descricao="Explosivo é uma classe focada em Explosivos" />        
         ,
     <f10 nome="Sobrevivente"
-        apelido="Sobrevivente"
-        atributos="{'SAB','CON'}"
-        tracos="{'Sobrevivente'}"
-        descricao="Sobrevivente é uma classe focada em Pegar Recursos e Sobreviver" />        
+         apelido="Sobrevivente"
+         atributos="{'SAB','CON'}"
+         tracos="Sobrevivente"
+         tipo="Classe"
+         descricao="Sobrevivente é uma classe focada em Pegar Recursos e Sobreviver" />        
         ,
     <f11 nome="Tatico"
-        apelido="Tático"
-        atributos="{'CON','FOR'}"
-        tracos="{'Tatico'}"
-        descricao="Tático é uma classe focada em Analisar o Ambiente e " />
+         apelido="Tático"
+         atributos="{'CON','FOR'}"
+         tracos="Tatico"
+         tipo="Classe"
+         descricao="Tático é uma classe focada em Analisar o Ambiente" />
 </base>

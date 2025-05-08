@@ -1,0 +1,38 @@
+<acoes>
+  <a1 nome="Coagir" tipo="Perícia" atr="Carisma" tracos="Mental, Linguagem" descricao="Tenta forçar alguém a fazer o que quer." acoes="1" />
+  <a2 nome="Causar Boa Impressão" tipo="Perícia" atr="Carisma" tracos="Mental, Linguagem" descricao="Cria uma boa (ou má) impressão em alguém." acoes="1" />
+  <a3 nome="Mentir" tipo="Perícia" atr="Carisma" tracos="Mental, Linguagem" descricao="Tenta enganar alguém com palavras falsas." acoes="1" />
+  <a4 nome="Obter Informações" tipo="Perícia" atr="Carisma" tracos="Linguagem, Auditivo" descricao="Obtém rumores e dados úteis em áreas urbanas." acoes="1" />
+  <a5 nome="Solicitar" tipo="Perícia" atr="Carisma" tracos="Linguagem, Auditivo" descricao="Pede algo a alguém com educação ou autoridade." acoes="1" />
+  <a6 nome="Apressar-se" tipo="Básica" atr="Constituição" tracos="Movimento" descricao="Move-se em ritmo acelerado fora de combate." />
+  <a7 nome="Equilibrar" tipo="Perícia" atr="Destreza" tracos="Movimento" descricao="Move-se com cuidado sobre terreno instável." acoes="1" />
+  <a8 nome="Esconder-se" tipo="Perícia" atr="Destreza" tracos="Furtivo" descricao="Tenta se esconder de observadores." acoes="1" />
+  <a9 nome="Escapar" tipo="Básica" atr="Destreza" tracos="Ataque" descricao="Tenta se libertar de um agarrão ou imobilização." />
+  <a10 nome="Evitar Ser Notado" tipo="Básica" atr="Destreza" tracos="Furtivo" descricao="Tenta se mover sem ser percebido." />
+  <a11 nome="Fintar" tipo="Perícia" atr="Carisma" tracos="Mental" descricao="Engana um oponente para deixá-lo vulnerável." acoes="1" />
+  <a12 nome="Levantar Rapidamente" tipo="Classe" atr="Destreza" tracos="Movimento" descricao="Levanta-se do chão com agilidade." />
+  <a13 nome="Rastejar" tipo="Básica" atr="Destreza" tracos="Movimento" descricao="Move-se enquanto estiver deitado." />
+  <a14 nome="Desarmar" tipo="Perícia" atr="Força" tracos="Ataque" descricao="Tenta derrubar a arma de um oponente." acoes="1" />
+  <a15 nome="Escalar" tipo="Perícia" atr="Força" tracos="Movimento" descricao="Tenta escalar uma superfície vertical." acoes="1" />
+  <a16 nome="Forçar Abertura" tipo="Perícia" atr="Força" tracos="Ataque" descricao="Arromba portas ou containers fechados." acoes="1" />
+  <a17 nome="Golpe Reativo" tipo="Classe" atr="Força" tracos="Reação" descricao="Ataca inimigo que baixa a guarda." />
+  <a18 nome="Agarrar" tipo="Perícia" atr="Força" tracos="Ataque" descricao="Tenta imobilizar um inimigo." acoes="1" />
+  <a19 nome="Arrastar" tipo="Perícia" atr="Força" tracos="Ataque" descricao="Move um inimigo para outra posição." acoes="1" />
+  <a20 nome="Salto em Altura" tipo="Básica" atr="Força" tracos="Movimento" descricao="Salta sobre um espaço ou obstáculo." />
+  <a21 nome="Salto em Distancia" tipo="Perícia" atr="Força" tracos="Movimento" descricao="Salta horizontalmente com força." acoes="1" />
+  <a22 nome="Salto Vertical" tipo="Perícia" atr="Força" tracos="Movimento" descricao="Salta verticalmente com força." acoes="1" />
+  <a23 nome="Escavar" tipo="Básica" atr="Força" tracos="Movimento" descricao="Move-se através do solo se puder escavar." />
+  <a24 nome="Desativar um Dispositivo" tipo="Perícia" atr="Inteligência" tracos="Manipulação" descricao="Tenta desarmar ou sabotar um dispositivo." acoes="1" />
+  <a25 nome="Disfarce" tipo="Perícia" atr="Carisma" tracos="Disfarce" descricao="Finge ser outra pessoa por um tempo." acoes="1" />
+  <a26 nome="Procurar" tipo="Básica" atr="Percepção" tracos="Concentrado" descricao="Procura por criaturas ou objetos escondidos." />
+  <a27 nome="Sentir Intenção" tipo="Básica" atr="Sabedoria" tracos="Mental" descricao="Tenta perceber intenções ocultas de alguém." />
+  <a28 nome="Comandar um Animal" tipo="Perícia" atr="Sabedoria" tracos="Auditivo, Linguagem" descricao="Dá ordens a um animal treinado." acoes="1" />
+  <a29 nome="Prestar Primeiros Socorros" tipo="Perícia" atr="Sabedoria" tracos="nenhum" descricao="Tenta estabilizar ou ajudar um aliado ferido." acoes="1" />
+  <a30 nome="Você Primeiro" tipo="Classe" atr="Carisma" tracos="nenhum" descricao="Permite que um aliado aja antes de você na iniciativa." />
+  <a31 nome="Ajudar" tipo="Classe" atr="Variável" tracos="nenhum" descricao="Tenta ajudar um aliado em uma tarefa." />
+  <a32 nome="Interagir" tipo="Básica" atr="Variável" tracos="Manipulação" descricao="Interage com um objeto ou ambiente." />
+  <a33 nome="Montar" tipo="Básica" atr="Variável" tracos="Movimento" descricao="Sobe em uma montaria ou veículo." />
+  <a34 nome="Cair no Chão" tipo="Básica" atr="nenhum" tracos="Movimento" descricao="Deita-se no chão." />
+  <a35 nome="Aguardar" tipo="Básica" atr="nenhum" tracos="Reação" descricao="Adia sua ação para mais tarde na rodada." />
+  <a36 nome="Soltar" tipo="Básica" atr="nenhum" tracos="Manipulação" descricao="Solta o que está segurando." />
+</acoes>

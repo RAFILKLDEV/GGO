@@ -1,0 +1,311 @@
+<popup name="modalArmas"
+       backOpacity="0.3"
+       width="705"
+       height="400">
+       <event name="onResize">
+              require("utils.lua");
+              require("gui.lua");
+              local mesa = Firecast.getRoomOf(sheet);
+              local chat = mesa.chat;
+              local xml = NDB.load("armasLista.xml");
+              local arrayArmas = NDB.getChildNodes(xml);
+              local primeiraArma
+
+              local function atualizarLayout(modal)
+
+              local modal = modal or self.caracteristicasArmasBar:getChildren()
+              for j = 1, #modal, 1 do
+
+              if modal[j] ~= nil then
+              local text = modal[j]:getChildren()[1].text:gsub("([^%s]+)", "%1 ")
+              local textWidth = math.max(text:len() * 7.4, 65) -- 60 é o mínimo, ajuste como
+              modal[j].width = textWidth
+              end
+
+              end
+
+              end
+
+              armas = {} -- new array
+              nomesArmas = {} -- new array
+
+              for i = 1, #arrayArmas, 1 do
+              armas[i] = xml["f" .. i]
+              nomesArmas[i] = xml["f" .. i].nome
+              end
+
+              table.sort(nomesArmas)
+
+              local armasAntigas = self.modalArmasBar:getChildren()
+
+              -- Remove os talentos antigos da interface
+              for k = 1, #armasAntigas, 1 do
+              armasAntigas[k]:destroy()
+              end
+
+              table.sort(armas, function(a, b) return a.apelido &gt; b.apelido end)
+
+              -- Loop para criar os novos talentos
+
+              for k = 1, #armas, 1 do
+
+              -- Passando o valor de k diretamente para a função onClick
+              local container = GUI.newRectangle()
+              container.align = "top"
+              container.height = 30
+              container.color = "black"
+              container.padding = {left=5, right=5, top=5, bottom=5}
+              container.parent = self.modalArmasBar -- substitua pelo pai
+
+              container.onClick = function()
+              local armasRectangles = self.modalArmasBar:getChildren()
+
+              -- Desmarcar talentos antigos
+              for x = 1, #armasRectangles, 1 do
+              armasRectangles[x].strokeSize = 0
+              end
+
+              -- Marcar o talento selecionado
+              container.strokeSize = 1
+              container.strokeColor = "#00CFFF"
+              sheet.imgArmaModal = "imgs/armas/" .. armas[k].nome .. ".png"
+              sheet.nomeArmaModal = armas[k].nome
+              sheet.apelidoArmaModal = armas[k].apelido
+              sheet.danoArmaModal = armas[k].dano
+              sheet.modoArmaModal = armas[k].modos
+              sheet.municaoArmaModal = armas[k].municao
+              sheet.miraArmaModal = armas[k].mira
+              sheet.durabilidadeArmaModal = armas[k].durabilidade
+              sheet.requisitoArmaModal = 5
+              sheet.carregadorArmaModal = armas[k].carregador
+              sheet.descricaoArmaModal = armas[k].descricao or "Nenhum"
+              sheet.requisitoArmaModal = armas[k].requisito or "Nenhum"
+              sheet.tipoArmaModal = armas[k].tipo or "Nenhum"
+              sheet.tipoDanoArmaModal = armas[k].danoTipo or "Nenhum"
+              sheet.tracoArmaModal = armas[k].tracos
+              sheet.precoArmaModal = "Preço: " .. armas[k].preco
+
+              -- Remove os traços antigos
+              local tracosArmasBar = self.tracosArmasBar:getChildren()
+              for v = 1, #tracosArmasBar, 1 do
+              tracosArmasBar[v]:destroy()
+              end
+
+              -- Remove os caracteristicas antigos
+              local caracteristicasArmasBar = self.caracteristicasArmasBar:getChildren()
+              for v = 1, #caracteristicasArmasBar, 1 do
+              caracteristicasArmasBar[v]:destroy()
+              end
+
+
+              -- Loop para adicionar os traços do talento
+              local tracosArmas = {armas[k].tipo, armas[k].apelido, armas[k].danoTipo}
+              for j = 1, #tracosArmas, 1 do
+
+              local text = armas[k].apelido:gsub("([^%s]+)", "%1 ")
+              local textWidth = math.max(text:len() * 7, 80) -- 60 é o mínimo, ajuste como
+              local containerTraco = GUI.newRectangle()
+              containerTraco.align = "left"
+              containerTraco.color = "darkRed"
+              containerTraco.width = textWidth
+              containerTraco.height = 20
+              containerTraco.padding = {left=5, top=5, right=5, bottom=5}
+              containerTraco.margins = {left=5}
+              containerTraco.parent = self.tracosArmasBar
+
+              local label = GUI.newLabel()
+              label.align = "client"
+              label.text = tracosArmas[j]
+              label.horzTextAlign = "center"
+              label.parent = containerTraco
+
+              containerTraco["g-dyn-width-txt"] = true
+              end
+
+              -- Loop para adicionar os caracteristicas do talento
+              local caracteristicasArmas = {armas[k].alcance, armas[k].dano,
+              armas[k].municao, armas[k].mira, armas[k].modos, armas[k].carregador,
+              armas[k].capacidade}
+
+              for j = 1, #caracteristicasArmas, 1 do
+
+              local text = armas[k].apelido:gsub("([^%s]+)", "%1 ")
+              local textWidth = math.max(text:len() * 7, 80) -- 60 é o mínimo, ajuste como
+              local containerTraco = GUI.newRectangle()
+              containerTraco.align = "left"
+              containerTraco.color = "#00008B"
+              containerTraco.width = textWidth
+              containerTraco.height = 20
+              containerTraco.padding = {left=5, top=5, right=5, bottom=5}
+              containerTraco.margins = {left=5}
+              containerTraco.parent = self.caracteristicasArmasBar
+
+              local label = GUI.newLabel()
+              label.align = "client"
+              label.text = caracteristicasArmas[j]
+              label.horzTextAlign = "center"
+              label.parent = containerTraco
+
+              containerTraco["g-dyn-width-txt"] = true
+              end
+
+              atualizarLayout()
+              atualizarLayout(self.tracosArmasBar:getChildren())
+
+              end
+
+              -- Margens
+              if k &lt;= #armas then
+              container.margins = {bottom=5}
+              end
+
+              -- Criar Item Modal
+              local label = GUI.newLabel()
+              label.align = "left"
+              label.width = 200
+              label.text = armas[k].apelido
+              label.parent = container
+
+              local levelBox = GUI.newRectangle()
+              levelBox.align = "right"
+              levelBox.width = 90
+              levelBox.color = "darkRed"
+              levelBox.padding = {left=5, right=5, top=5, bottom=5}
+              levelBox.parent = container
+
+              local levelLabel = GUI.newLabel()
+              levelLabel.align = "client"
+              levelLabel.g = "col"
+              levelLabel["g-dyn-width-txt"] = true
+              levelLabel.horzTextAlign = "center"
+              levelLabel.text = armas[k].tipo
+              levelLabel.parent = levelBox
+
+              end
+
+              sheet.imgArmaModal = "imgs/armas/" .. "ak47" .. ".png"
+              sheet.apelidoArmaModal = armas[1].apelido
+              sheet.nomeArmaModal = armas[1].nome
+              sheet.requisitoArmaModal = 5
+              sheet.descricaoArmaModal = armas[1].descricao or "Nenhum"
+              sheet.requisitoArmaModal = armas[1].requisito or "Nenhum"
+              sheet.tipoArmaModal = armas[1].tipo or "Nenhum"
+              sheet.modosArmaModal = armas[1].modos
+              sheet.tipoDanoArmaModal = armas[1].danoTipo or "Nenhum"
+              sheet.tracoArmaModal = armas[1].tracos
+              sheet.alcanceArmaModal = armas[1].alcance
+              sheet.caracteristicasArmaModal = armas[1].caracteristicas
+              sheet.precoArmaModal = "Preço: " .. armas[1].preco
+              
+
+
+       </event>
+       <rectangle align="top"
+              height="30"
+              color="black"
+              padding="{top=5,bottom=5}">
+              <label align="left"
+                     width="250"
+                     horzTextAlign="center"
+                     text="Gun Gale Online - RPG" />
+              <label align="left"
+                     width="60"
+                     text="Pesquisar" />
+              <edit align="left"
+                     width="100" />
+              <button align="left"
+                     text=">" />
+       </rectangle>
+       <rectangle align="left"
+              width="300"
+              color="#3A3A3A"
+              padding="{left=5,right=5,top=5,bottom=5}">
+              <scrollBox align="client" name="modalArmasBar"></scrollBox>
+       </rectangle>
+       <rectangle align="left"
+              color="#2E2E2E"
+              width="400"
+              padding="{left=5,right=5,top=5,bottom=5}">
+              <scrollBox align="client">
+                     <rectangle align="top"
+                            height="30"
+                            color="black"
+                            padding="{left=5,right=5,top=5,bottom=5}">
+                            <flowLayout autoHeight="true" align="client" name="tracosArmasBar" />
+                     </rectangle>
+
+                     <rectangle align="top"
+                            height="5"
+                            color="#3A3A3A"
+                            padding="{left=5,right=5,top=5,bottom=5}" />
+
+                     <rectangle align="top"
+                            height="55"
+                            color="black"
+                            name="caracteristicasRecArmaModal"
+                            padding="{left=5,right=5,top=5,bottom=5}">
+                            <flowLayout align="client" autoHeight="true"
+                                   lineSpacing="5"
+                                   name="caracteristicasArmasBar">
+                                   <event name="onAfterLayoutCalc">
+
+                                   </event>
+                            </flowLayout>
+                     </rectangle>
+
+                     <rectangle align="top"
+                            height="5"
+                            color="#3A3A3A"
+                            padding="{left=5,right=5,top=5,bottom=5}" />
+
+                     <image src="imgs/armas/ak47.png" field="imgArmaModal" align="top" height="150"
+                            padding="{left=5,top=5,right=5,bottom=5}" />
+                     <rectangle align="top"
+                            height="30"
+                            color="#3A3A3A"
+                            padding="{left=5,right=5,top=5,bottom=5}">
+                            <label align="client"
+                                   field="precoArmaModal" />
+                     </rectangle>
+                     <rectangle align="top"
+                            height="30"
+                            color="#3A3A3A"
+                            padding="{left=5,right=5,top=5,bottom=5}"
+                            margins="{top=10}">
+                            <label align="client"
+                                   text="Descrição:"
+                                   fontStyle="bold" />
+                     </rectangle>
+
+                     <rectangle align="top"
+                            height="30"
+                            color="#3A3A3A"
+                            padding="{left=5,right=5,top=5,bottom=5}">
+                            <label align="client"
+                                   field="descricaoTalento" />
+                     </rectangle>
+
+              </scrollBox>
+       </rectangle>
+       <rectangle align="bottom"
+              height="30"
+              color="black"
+              padding="{top=5,bottom=5}">
+              <button align="left"
+                     width="100"
+                     text="Aceitar">
+                     <event name="onClick">
+                            calcularTalentos()
+                            self.inventarioRcl:append()
+                            self.modalArmas:close()
+                     </event>
+              </button>
+              <button align="left"
+                     width="100"
+                     text="Cancelar" />
+              <button align="left"
+                     width="100"
+                     text="Limpar" />
+       </rectangle>
+
+</popup>

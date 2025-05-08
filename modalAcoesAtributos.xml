@@ -1,0 +1,99 @@
+<popup name="modalAcoesAtributos"
+       visible="true"
+       width="300"
+       height="600"
+       backOpacity="0.3">
+       <event name="onCalculateSize">
+              local atributos = {
+              "Força", "Destreza", "Constituição", "Inteligência", "Sabedoria", "Carisma"
+              }
+
+              local cores = {
+              "red", "green", "Sienna", "blue", "purple", "GoldenRod"
+              }
+
+              local cores2 = {
+                     "#8B0000",       -- vermelho escuro
+                     "#006400",     -- verde escuro
+                     "#80411F",      -- cinza escuro
+                     "#00008B",      -- azul escuro
+                     "#4B004B",    -- roxo escuro
+                     "#8B8000"     -- amarelo escuro
+                   }
+                   
+
+              -- Remove os retângulos antigos
+              for _, child in ipairs(self.acoesAtributosBar:getChildren()) do
+              child:destroy()
+              end
+
+              -- Inicializa tabela de controle
+              self.rectanglesPericias = {}
+              sheet.modalPericias = sheet.modalPericias or {}
+
+              local xml = NDB.load("modalAcoesLista.xml");
+              local arrayAcoes = NDB.getChildNodes(xml);
+
+              acoes = {} -- new array
+              nomesAcoes = {} -- new array
+
+              for i = 1, #arrayAcoes, 1 do
+              acoes[i] = xml["a" .. i]
+              nomesAcoes[i] = xml["a" .. i].nome
+              end
+
+              table.sort(nomesAcoes)
+
+              for j = 1, #atributos, 1 do
+
+              local rectangleLayout = GUI.newRectangle()
+              rectangleLayout.align = "top"
+              rectangleLayout.height = 30
+              rectangleLayout.color = cores[j]
+              rectangleLayout.padding = {left=10, right=10, top=5, bottom=5}
+              rectangleLayout.margins = {top=10}
+              rectangleLayout.parent = self.acoesAtributosBar
+
+              local labelNome = GUI.newLabel()
+              labelNome.text = atributos[j]
+              labelNome.align = "client"
+              labelNome.width = 220
+              labelNome.parent = rectangleLayout
+
+              for i = 1, #acoes, 1 do
+
+              if acoes[i].atr == atributos[j] then
+             
+              local rectangle = GUI.newRectangle()
+              rectangle.align = "top"
+              rectangle.height = 30
+              rectangle.name = "rectangle" .. i
+              rectangle.color = cores2[j]
+              rectangle.padding = {left=10, right=10, top=5, bottom=5}
+              rectangle.margins = {top=5}
+              rectangle.parent = self.acoesAtributosBar
+              rectangle.onClick = function()
+
+              end
+
+              local label = GUI.newLabel()
+              label.text = acoes[i].nome
+              label.align = "left"
+              label.width = 220
+              label.parent = rectangle
+
+              local label2 = GUI.newLabel()
+              label2.text = acoes[i].acoes and (acoes[i].acoes == "1" and "1 ação" or acoes[i].acoes .. " ações") or "Variável"
+              label2.width = 80
+              label2.align = "right"
+              label2.horzTextAlign = "center"
+              label2.parent = rectangle
+
+              end
+              end
+
+       end
+       </event>
+       <scrollBox name="acoesAtributosBar" align="client"
+       />
+</popup>

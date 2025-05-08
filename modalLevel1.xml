@@ -73,6 +73,8 @@
               sheet.level1Titulo = criarLabelLv1()
 
               calcularTalentos()
+
+              self.modalLevel1Pericias:show()
        </event>
        <template name="level1Atr">
               <rectangle align="top"

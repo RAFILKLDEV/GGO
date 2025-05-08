@@ -1,0 +1,202 @@
+<popup name="modalTreinamentoLevel1"
+       visible="true"
+       width="250"
+       height="325"
+       backOpacity="0.3">
+       <event name="onResize">
+
+              -- desarmado, armasBrancas, pistolas, espingardas, metralhadoras, rifles, explosivos
+              local armas = {
+              "Esquiva","Desarmado", "Armas Brancas", "Pistolas", "Espingardas", "Metralhadoras", "Rifles",
+              "Explosivos"
+              }
+
+              -- Remove os retângulos antigos
+              for _, child in ipairs(self.modalTreinamentoBar:getChildren()) do
+              child:destroy()
+              end
+
+              -- Inicializa tabela de controle
+              self.rectanglesTreinamentos = {}
+              sheet.modalTreinamentoBar = sheet.modalTreinamentoBar or {}
+
+              for i = #armas, 1, - 1 do
+              local tag = sheet["armas" .. i .. "Tr"]
+              if tag == "D" or tag == "T" then
+              local rectangle = GUI.newRectangle()
+              rectangle.align = "top"
+              rectangle.height = 30
+              rectangle.color = "#3A3A3A"
+              rectangle.name = "rectangle" .. i
+              rectangle.padding = {left=5, right=5, top=5, bottom=5}
+              rectangle.margins = {top=5, bottom=5}
+              rectangle.parent = self.modalTreinamentoBar
+
+              self.rectanglesTreinamentos[i] = rectangle -- salva para acesso depois
+
+              local idx = i -- escopo correto
+              rectangle.onClick = function()
+              if sheet.modalTreinamentoBar[idx] == false or sheet.modalTreinamentoBar[idx] == nil
+              then
+              if sheet.modalTreinamentoBarTotal > 0 then
+              sheet.modalTreinamentoBarTotal = sheet.modalTreinamentoBarTotal - 1
+              sheet.modalTreinamentoBar[idx] = true
+              rectangle.color = "green"
+              if sheet["armas" .. idx .. "Tr"] == "D" then
+              sheet["armas" .. idx .. "Tr"] = "T"
+              end
+
+              end
+              else
+              sheet.modalTreinamentoBarTotal = sheet.modalTreinamentoBarTotal + 1
+              sheet.modalTreinamentoBar[idx] = false
+              rectangle.color = "#3A3A3A"
+              if sheet["armas" .. i .. "Tr"] == "T" then
+              sheet["armas" .. i .. "Tr"] = "D"
+              end
+              end
+              calcularTalentos()
+              end
+
+              local label = GUI.newLabel()
+              label.text = armas[i]
+              label.align = "client"
+              label.horzTextAlign = "center"
+              label.parent = rectangle
+              end
+              end
+
+              -- Atualiza cores e total
+              local periciasComputadas = {}
+              for i = 1, #armas do
+              if sheet.modalTreinamentoBar[i] then
+              local rect = self.rectanglesTreinamentos[i]
+              if rect then
+              rect.color = "green"
+              end
+              table.insert(periciasComputadas, armas[i])
+              end
+              end
+
+              sheet.modalTreinamentoBarTotal = 2 - #periciasComputadas
+       </event>
+       <template name="level1Treinamento">
+              <rectangle align="top"
+                     height="30"
+                     color="#3A3A3A"
+                     padding="{left=5,right=5,top=5,bottom=5}"
+                     margins="{top=5,bottom=5}">
+                     <comboBox align="client"
+                            horzTextAlign="center"
+                            items='{
+                                   "Iniciativa", "Percepção", "Fortitude", "Reflexos", "Vontade",
+                                   "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia",
+                                   "Enganação",
+                                   "Furtividade", "Guerra", "Intimidação", "Sobrevivencia"
+                                   }'
+                            values='{
+                                   "Iniciativa", "Percepcao", "Fortitude", "Reflexos", "Vontade",
+                                   "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia",
+                                   "Enganacao",
+                                   "Furtividade", "Guerra", "Intimidacao", "Sobrevivencia"
+                                   }'
+                            name="$('level1Pericia' .. idx)"
+                            field="$('level1Pericia' .. idx)">
+
+                            <event name="onChange">-- cópia para preservar o original
+
+                                   function deepCopy(orig)
+                                   local copy = {}
+                                   for k, v in pairs(orig) do
+                                   if type(v) == "table" then
+                                   copy[k] = deepCopy(v)
+                                   else
+                                   copy[k] = v
+                                   end
+                                   end
+                                   return copy
+                                   end
+
+                                   local treinamentosBase = {
+                                   "Desarmado", "Armas Brancas", "Pistolas", "Espingardas",
+                                   "Metralhadoras", "Rifles",
+                                   "Explosivos"
+                                   }
+
+                                   local valuesBase = {
+                                   "Desarmado", "Armas Brancas", "Pistolas", "Espingardas",
+                                   "Metralhadoras", "Rifles",
+                                   "Explosivos"
+                                   }
+
+                                   -- elimina selecionadas
+                                   for i = #armas, 1, -1 do
+                                   for j = 1, 5 do
+                                   if sheet.treinamentosEscolhidos[j] == values[i] then
+                                   table.remove(pericias, i)
+                                   table.remove(values, i)
+                                   break
+                                   end
+                                   end
+                                   end
+
+                                   -- atribui opções aos campos
+                                   for i = 1, 5 do
+                                   local field = self["level1Pericia" .. i]
+                                   if field ~= nil then
+                                   local items = deepCopy(pericias)
+                                   local valores = deepCopy(values)
+
+                                   -- se houver valor já selecionado, insere no topo
+                                   local selecionada = sheet.treinamentosEscolhidos[i]
+                                   if selecionada ~= nil then
+                                   for j = 1, #valuesBase do
+                                   if valuesBase[j] == selecionada then
+                                   table.insert(items, 1, treinamentosBase[j])
+                                   table.insert(valores, 1, valuesBase[j])
+                                   break
+                                   end
+                                   end
+                                   end
+
+                                   field.items = items
+                                   field.values = valores
+                                   end
+                                   end
+                            </event>
+                     </comboBox>
+              </rectangle>
+       </template>
+       <rectangle align="top"
+              height="30"
+              color="black"
+              padding="{top=5,bottom=5}">
+              <label align="client"
+                     horzTextAlign="center"
+                     text="Gun Gale Online - RPG" />
+       </rectangle>
+       <rectangle align="top"
+              color="#2E2E2E"
+              height="40"
+              padding="{left=5,right=5,top=5,bottom=5}"
+              margins="{bottom=5}">
+              <rectangle align="top"
+                     height="30"
+                     color="black"
+                     padding="{left=5,right=5,top=5,bottom=5}">
+                     <flowLayout align="client" orientation="horizontal" horzAlign="center">
+                            <label text="Escolha" width="45" height="20" />
+                            <label field="modalTreinamentoBarTotal" width="15" height="20"
+                                   horzTextAlign="center" />
+                            <label text=" Treinamentos" width="90" height="20" g-dyn-width-txt="true" />
+                     </flowLayout>
+              </rectangle>
+       </rectangle>
+
+       <scrollBox align="top"
+              name="modalTreinamentoBar"
+              height="240"
+              padding="{left=5,right=5,top=5,bottom=5}"
+              margins="{bottom=5}">
+       </scrollBox>
+</popup>

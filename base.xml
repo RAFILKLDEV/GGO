@@ -1,7 +1,5 @@
 <form name="GGO_Base">
     <event name="onNodeReady">        
-        sheet.seletorModal = ""
-        sheet.modalNode = {}
     </event>
     <dataLink field="seletorModal">
         <event name="onChange">            

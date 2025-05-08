@@ -26,6 +26,9 @@
       local raridade = {"Destreinado", "Treinado", "Especialista", "Mestre", "Lenda"}
 
       for i = 1, 14 do
+
+      if sheet["pericia" .. i .. "Tr"] ~= nil then
+
       if sheet["pericia" .. i .. "Tr"] == "T" then
       self["pericia" .. i].color = "#217a52"
       elseif sheet["pericia" .. i .. "Tr"] == "E" then
@@ -37,6 +40,27 @@
       else self["pericia" .. i].color = "#555555"
       end
       end
+
+      end
+
+      for i = 1, 8 do
+
+      if sheet["armas" .. i .. "Tr"] ~= nil then
+
+      if sheet["armas" .. i .. "Tr"] == "T" then
+      self["armas" .. i].color = "#217a52"
+      elseif sheet["armas" .. i .. "Tr"] == "E" then
+      self["armas" .. i].color = "#236fa1"
+      elseif sheet["armas" .. i .. "Tr"] == "M" then
+      self["armas" .. i].color = "#6e3b84"
+      elseif sheet["armas" .. i .. "Tr"] == "L" then
+      self["armas" .. i].color = "#b58f00"
+      else self["armas" .. i].color = "#555555"
+      end
+      end
+
+      end
+
       end
 
       local function calcularTalentos()
@@ -100,30 +124,85 @@
 
       end
 
+      sheet.per_iniciativa = "+" .. (sheet.DES + (treinamentoValor(sheet.pericia1Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia1Tr))
 
-      sheet.per_iniciativa = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia1Tr))
-      sheet.per_percepcao = "+" .. (sheet.SAB + sheet.level + treinamentoValor(sheet.pericia2Tr))
+      sheet.per_percepcao = "+" .. (sheet.SAB + (treinamentoValor(sheet.pericia2Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia2Tr))
 
-      sheet.per_fortitude = "+" .. (sheet.CON + sheet.level + treinamentoValor(sheet.pericia3Tr))
-      sheet.per_reflexo = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia4Tr))
-      sheet.per_vontade = "+" .. (sheet.SAB + sheet.level + treinamentoValor(sheet.pericia5Tr))
+      sheet.per_fortitude = "+" .. (sheet.CON + (treinamentoValor(sheet.pericia3Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia3Tr))
 
-      sheet.per_atletismo = "+" .. (sheet.FOR + sheet.level + treinamentoValor(sheet.pericia6Tr))
-      sheet.per_acrobacia = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia7Tr))
-      sheet.per_conhecimento = "+" .. (sheet.INT + sheet.level + treinamentoValor(sheet.pericia8Tr))
-      sheet.per_diplomacia = "+" .. (sheet.CAR + sheet.level + treinamentoValor(sheet.pericia9Tr))
-      sheet.per_enganacao = "+" .. (sheet.CAR + sheet.level + treinamentoValor(sheet.pericia10Tr))
-      sheet.per_furtividade = "+" .. (sheet.DES + sheet.level + treinamentoValor(sheet.pericia11Tr))
-      sheet.per_guerra = "+" .. (sheet.INT + sheet.level + treinamentoValor(sheet.pericia12Tr))
-      sheet.per_intimidacao = "+" .. (sheet.CAR + sheet.level + treinamentoValor(sheet.pericia13Tr))
-      sheet.per_sobrevivencia = "+" .. (sheet.SAB + sheet.level + treinamentoValor(sheet.pericia14Tr))
+      sheet.per_reflexo = "+" .. (sheet.DES + (treinamentoValor(sheet.pericia4Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia4Tr))
 
-      
+      sheet.per_vontade = "+" .. (sheet.SAB + (treinamentoValor(sheet.pericia5Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia6Tr))
 
-      coresTreinamento()
-      
+      sheet.per_acrobacia = "+" .. (sheet.DES + (treinamentoValor(sheet.pericia6Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia6Tr))
+
+      sheet.per_atletismo = "+" .. (sheet.FOR + (treinamentoValor(sheet.pericia7Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia7Tr))
+
+      sheet.per_conhecimento = "+" .. (sheet.INT + (treinamentoValor(sheet.pericia8Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia8Tr))
+
+      sheet.per_diplomacia = "+" .. (sheet.CAR + (treinamentoValor(sheet.pericia9Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia9Tr))
+
+      sheet.per_enganacao = "+" .. (sheet.CAR + (treinamentoValor(sheet.pericia10Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia10Tr))
+
+      sheet.per_furtividade = "+" .. (sheet.DES + (treinamentoValor(sheet.pericia11Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia11Tr))
+
+      sheet.per_guerra = "+" .. (sheet.INT + (treinamentoValor(sheet.pericia12Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia12Tr))
+
+      sheet.per_intimidacao = "+" .. (sheet.CAR + (treinamentoValor(sheet.pericia13Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.pericia13Tr))
+
+      sheet.per_sobrevivencia = "+" .. (sheet.SAB + (treinamentoValor(sheet.pericia14Tr) == 0 and 0
+      or
+      sheet.level) +
+      treinamentoValor(sheet.pericia14Tr))
+
+      -- Treinamentos
+
+      for i = 1, 8, 1 do
+         sheet["armas" .. i .. "Tr"] = sheet["armas" .. i .. "Tr"] or "D"
       end
 
+      -- desarmado, armasBrancas, pistolas, espingardas, metralhadoras, rifles, explosivos
+
+      sheet.per_CA = "+" .. (sheet.DES + (treinamentoValor(sheet.armas1Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas1Tr))
+
+      sheet.per_desarmado = "+" .. (sheet.FOR + (treinamentoValor(sheet.armas2Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas2Tr))
+
+      sheet.per_armasBrancas = "+" .. (sheet.FOR + (treinamentoValor(sheet.armas3Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas3Tr))
+
+      sheet.per_pistolas = "+" .. (sheet.DES + (treinamentoValor(sheet.armas4Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas4Tr))
+
+      sheet.per_espingardas = "+" .. (sheet.DES + (treinamentoValor(sheet.armas5Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas5Tr))
+
+      sheet.per_metralhadoras = "+" .. (sheet.DES + (treinamentoValor(sheet.armas6Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas6Tr))
+
+      sheet.per_rifles = "+" .. (sheet.DES + (treinamentoValor(sheet.armas7Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas7Tr))
+
+      sheet.per_explosivos = "+" .. (sheet.INT + (treinamentoValor(sheet.armas8Tr) == 0 and 0 or
+      sheet.level) + treinamentoValor(sheet.armas8Tr))
+
+      coresTreinamento()
+
+      end
 
    </script>
    <event name="onNodeReady">
@@ -139,10 +218,19 @@
 
       end
 
+      calcularTalentos()
+
+      self.modalAcoes:show()
+
    </event>
    <import file="templates.xml" />
    <import file="modal.xml" />
    <import file="modalLevel1.xml" />
+   <import file="modalPericias.xml" />
+   <import file="modalTreinamentoLevel1.xml" />
+   <import file="modalArmas.xml" />
+   <import file="modalAcoes.xml" />
+   <import file="modalAcoesAtributos.xml" />
    <import file="base.xml" />
    <rectangle align="left"
       width="1200"

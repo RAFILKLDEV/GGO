@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="inventario" height="330" padding="{left=5,top=5,right=5,bottom=5}"
+    margins="{top=2,bottom=2}">
+    <event name="onNodeReady">
+
+        local tracosArmas = {
+        sheet.tipoArma, 
+        sheet.apelidoArma,
+        sheet.tipoDanoArma,
+        }
+
+        for j = 1, #tracosArmas, 1 do
+
+        if tracosArmas[j] ~= nil then
+
+            local containerTraco = GUI.newRectangle()
+            containerTraco.align = "left"
+            containerTraco.color = "darkRed"
+            containerTraco.height = 20
+            containerTraco.padding = {left=5, top=5, right=5, bottom=5}
+            containerTraco.margins = {left=5}
+            containerTraco.parent = self.tracosBarInventario
+            
+            local label = GUI.newLabel()
+            label.align = "client"
+            label.text = tracosArmas[j]
+            label.horzTextAlign = "center"
+            label.parent = containerTraco
+            
+            containerTraco["g-dyn-width-txt"] = true
+
+        end
+
+        end
+
+        local tracosArmasBar = self.tracosBarInventario:getChildren()
+
+        for j = 1, #tracosArmasBar, 1 do
+
+        if tracosArmasBar[j] ~= nil then
+            local text = tracosArmasBar[j]:getChildren()[1].text:gsub("([^%s]+)", "%1 ")
+            local textWidth = math.max(text:len() * 7.4, 70) 
+            tracosArmasBar[j].width = textWidth
+        end
+
+        end
+
+        local caracteristicasArmas = {
+        sheet.alcanceArma, 
+        sheet.danoArma,
+        sheet.municaoArma,
+        sheet.miraArma, 
+        sheet.modoArma, 
+        sheet.carregadorArma,
+        }
+
+        for j = 1, #caracteristicasArmas, 1 do
+
+        if caracteristicasArmas[j] ~= nil then
+
+            local containerTraco = GUI.newRectangle()
+            containerTraco.align = "left"
+            containerTraco.color = "#00008B"
+            containerTraco.height = 20
+            containerTraco.padding = {left=5, top=5, right=5, bottom=5}
+            containerTraco.margins = {left=5}
+            containerTraco.parent = self.caracteristicasArmasBar
+            
+            local label = GUI.newLabel()
+            label.align = "client"
+            label.text = caracteristicasArmas[j]
+            label.horzTextAlign = "center"
+            label.parent = containerTraco
+            
+            containerTraco["g-dyn-width-txt"] = true
+
+        end
+
+        end
+
+        local caracteristicasArmasBar = self.caracteristicasArmasBar:getChildren()
+
+        for j = 1, #caracteristicasArmasBar, 1 do
+
+        if caracteristicasArmasBar[j] ~= nil then
+            local text = caracteristicasArmasBar[j]:getChildren()[1].text:gsub("([^%s]+)", "%1 ")
+            local textWidth = math.max(text:len() * 7.4, 70) 
+            caracteristicasArmasBar[j].width = textWidth
+        end
+
+        end
+
+        local total = 50 -- Total de balas disponíveis
+        sheet.atualCarregadorArma =  sheet.carregadorArma2
+
+        -- Calculando a porcentagem de balas restantes em relação ao total de balas (50)
+        local porcentagem = (sheet.atualCarregadorArma / sheet.carregadorArma2) * 100
+
+        -- Agora, você pode usar essa porcentagem para calcular um valor proporcional de 50
+        local resultado = (porcentagem / 100) * total
+
+        for i = 1, resultado do
+        local image = GUI.newImage()
+        image.src = "imgs/bala.png"
+        image.width = 7
+        image.height = 30
+        image.style = "stretch"
+        image.parent = self.arma1Recarga
+        end
+
+        local label = GUI.newLabel()
+        label.field = "carregadorArmaLabel"
+        label.width = 50
+        label.margins = {left=5}
+        label.parent = self.arma1Recarga
+
+        sheet.carregadorArmaLabel = (sheet.atualCarregadorArma or sheet.carregadorArma2) .. "/" .. sheet.carregadorArma2
+
+        local function atualizarLayout(modal)
+
+            local modal = modal or self.caracteristicasArmasBar:getChildren()
+            for j = 1, #modal, 1 do
+
+            if modal[j] ~= nil then
+            local text = modal[j]:getChildren()[1].text:gsub("([^%s]+)", "%1 ")
+            local textWidth = math.max(text:len() * 7.4, 65) -- 60 é o mínimo, ajuste como
+            modal[j].width = textWidth
+            end
+
+            end
+
+        end
+
+        atualizarLayout(self.tracosBarInventario:getChildren())
+
+    </event>
+    <template name="armaInfo">
+        <rectangle height="20" color="darkRed"
+            padding="{left=5,top=5,right=5,bottom=5}" margins="{left=5}"
+            name="$(field)" g-dyn-width-txt="true" hitTest="true">
+            <label align="client"
+                field="$(field)" horzTextAlign="center" g-dyn-width-txt="true" />
+        </rectangle>
+    </template>
+    <flowLayout name="tracosBarInventario" align="top" autoHeight="true" orientation="horizontal" lineSpacing="5"
+        horzAlign="center"
+    >
+    </flowLayout>
+
+    <image src="imgs/armas/ak47.png" field="imgArma" align="top" height="150" padding="{left=5,top=5,right=5,bottom=5}" />
+    <rectangle align="top" height="40" color="#2E2E2E" padding="{left=5,right=5,top=5,bottom=5}"
+        margins="{bottom=5}">
+        <rectangle align="top" height="30" color="black" margins="{bottom=20}">
+        <event name="onClick">
+            if tonumber(sheet.atualCarregadorArma) &gt; 0 then 
+            sheet.atualCarregadorArma = sheet.atualCarregadorArma - 1
+            sheet.carregadorArmaLabel = sheet.atualCarregadorArma .. "/" .. sheet.carregadorArma2
+
+            else
+
+            GUI.toast("Arma sem municão")
+
+            end
+        </event>
+        <event name="onMouseUp">
+            if event.button == "right" then 
+            sheet.atualCarregadorArma = sheet.carregadorArma2
+            sheet.carregadorArmaLabel = sheet.atualCarregadorArma .. "/" .. sheet.carregadorArma2
+            GUI.toast("Arma recarregada")
+
+            end
+        </event>
+            <flowLayout align="client" name="arma1Recarga" orientation="horizontal" lineSpacing="5"
+                horzAlign="center">
+            </flowLayout>
+        </rectangle>
+    </rectangle>
+    <flowLayout name="caracteristicasArmasBar" align="top" autoHeight="true" orientation="horizontal" lineSpacing="5"
+        horzAlign="center" margins="{top=5}"
+    >
+
+    </flowLayout>
+    <button align="top" margins="{top=15}" text="Apagar" width="80"
+        onClick="ndb.deleteNode(sheet);" />
+</form>

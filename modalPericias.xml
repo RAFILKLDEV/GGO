@@ -1,0 +1,207 @@
+<popup name="modalLevel1Pericias"
+       visible="true"
+       width="250"
+       height="325"
+       backOpacity="0.3">
+       <event name="onResize">
+              local pericias = {
+              "Iniciativa", "Percepção", "Fortitude", "Reflexos", "Vontade",
+              "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia", "Enganação",
+              "Furtividade", "Guerra", "Intimidação", "Sobrevivencia"
+              }
+
+              -- Remove os retângulos antigos
+              for _, child in ipairs(self.modalPericiasBar:getChildren()) do
+              child:destroy()
+              end
+
+              -- Inicializa tabela de controle
+              self.rectanglesPericias = {}
+              sheet.modalPericias = sheet.modalPericias or {}
+
+              for i = 1, #pericias, 1 do
+              local tag = sheet["pericia" .. i .. "Tr"]
+              if tag == "D" or tag == "T" then
+              local rectangle = GUI.newRectangle()
+              rectangle.align = "top"
+              rectangle.height = 30
+              rectangle.color = "#3A3A3A"
+              rectangle.name = "rectangle" .. i
+              rectangle.padding = {left=5, right=5, top=5, bottom=5}
+              rectangle.margins = {top=5, bottom=5}
+              rectangle.parent = self.modalPericiasBar
+
+              self.rectanglesPericias[i] = rectangle -- salva para acesso depois
+
+              local idx = i -- escopo correto
+              rectangle.onClick = function()
+              if sheet.modalPericias[idx] == false or sheet.modalPericias[idx] == nil then
+              if sheet.modalPericiasTotal > 0 then
+              sheet.modalPericiasTotal = sheet.modalPericiasTotal - 1
+              sheet.modalPericias[idx] = true
+              rectangle.color = "green"
+              if sheet["pericia" .. idx .. "Tr"] == "D" then
+              sheet["pericia" .. idx .. "Tr"] = "T"
+              end
+
+              end
+              else
+              sheet.modalPericiasTotal = sheet.modalPericiasTotal + 1
+              sheet.modalPericias[idx] = false
+              rectangle.color = "#3A3A3A"
+              if sheet["pericia" .. i .. "Tr"] == "T" then
+              sheet["pericia" .. i .. "Tr"] = "D"
+              end
+              end
+              calcularTalentos()
+              end
+
+              local label = GUI.newLabel()
+              label.text = pericias[i]
+              label.align = "client"
+              label.horzTextAlign = "center"
+              label.parent = rectangle
+              end
+              end
+
+              -- Atualiza cores e total
+              local periciasComputadas = {}
+              for i = 1, #pericias do
+              if sheet.modalPericias[i] then
+              local rect = self.rectanglesPericias[i]
+              if rect then
+              rect.color = "green"
+              end
+              table.insert(periciasComputadas, pericias[i])
+              end
+              end
+
+              sheet.modalPericiasTotal = 6 - #periciasComputadas
+       </event>
+       <event name="onClose">
+              calcularTalentos()
+
+              self.modalTreinamentoLevel1:show()
+       </event>
+       <template name="level1Pericia">
+              <rectangle align="top"
+                     height="30"
+                     color="#3A3A3A"
+                     padding="{left=5,right=5,top=5,bottom=5}"
+                     margins="{top=5,bottom=5}">
+                     <comboBox align="client"
+                            horzTextAlign="center"
+                            items='{
+                                   "Iniciativa", "Percepção", "Fortitude", "Reflexos", "Vontade",
+                                   "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia",
+                                   "Enganação",
+                                   "Furtividade", "Guerra", "Intimidação", "Sobrevivencia"
+                                   }'
+                            values='{
+                                   "Iniciativa", "Percepcao", "Fortitude", "Reflexos", "Vontade",
+                                   "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia",
+                                   "Enganacao",
+                                   "Furtividade", "Guerra", "Intimidacao", "Sobrevivencia"
+                                   }'
+                            name="$('level1Pericia' .. idx)"
+                            field="$('level1Pericia' .. idx)">
+
+                            <event name="onChange">-- cópia para preservar o original
+
+                                   function deepCopy(orig)
+                                   local copy = {}
+                                   for k, v in pairs(orig) do
+                                   if type(v) == "table" then
+                                   copy[k] = deepCopy(v)
+                                   else
+                                   copy[k] = v
+                                   end
+                                   end
+                                   return copy
+                                   end
+
+                                   local periciasBase = {
+                                   "Iniciativa", "Percepção", "Fortitude", "Reflexos", "Vontade",
+                                   "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia",
+                                   "Enganação",
+                                   "Furtividade", "Guerra", "Intimidação", "Sobrevivencia"
+                                   }
+
+                                   local valuesBase = {
+                                   "Iniciativa", "Percepcao", "Fortitude", "Reflexos", "Vontade",
+                                   "Acrobacia", "Atletismo", "Conhecimento", "Diplomacia",
+                                   "Enganacao",
+                                   "Furtividade", "Guerra", "Intimidacao", "Sobrevivencia"
+                                   }
+
+                                   -- elimina selecionadas
+                                   for i = #pericias, 1, -1 do
+                                   for j = 1, 5 do
+                                   if sheet.periciasEscolhidas[j] == values[i] then
+                                   table.remove(pericias, i)
+                                   table.remove(values, i)
+                                   break
+                                   end
+                                   end
+                                   end
+
+                                   -- atribui opções aos campos
+                                   for i = 1, 5 do
+                                   local field = self["level1Pericia" .. i]
+                                   if field ~= nil then
+                                   local items = deepCopy(pericias)
+                                   local valores = deepCopy(values)
+
+                                   -- se houver valor já selecionado, insere no topo
+                                   local selecionada = sheet.periciasEscolhidas[i]
+                                   if selecionada ~= nil then
+                                   for j = 1, #valuesBase do
+                                   if valuesBase[j] == selecionada then
+                                   table.insert(items, 1, periciasBase[j])
+                                   table.insert(valores, 1, valuesBase[j])
+                                   break
+                                   end
+                                   end
+                                   end
+
+                                   field.items = items
+                                   field.values = valores
+                                   end
+                                   end
+                            </event>
+                     </comboBox>
+              </rectangle>
+       </template>
+       <rectangle align="top"
+              height="30"
+              color="black"
+              padding="{top=5,bottom=5}">
+              <label align="client"
+                     horzTextAlign="center"
+                     text="Gun Gale Online - RPG" />
+       </rectangle>
+       <rectangle align="top"
+              color="#2E2E2E"
+              height="40"
+              padding="{left=5,right=5,top=5,bottom=5}"
+              margins="{bottom=5}">
+              <rectangle align="top"
+                     height="30"
+                     color="black"
+                     padding="{left=5,right=5,top=5,bottom=5}">
+                     <flowLayout align="client" orientation="horizontal" horzAlign="center">
+                            <label text="Escolha" width="45" height="20" />
+                            <label field="modalPericiasTotal" width="15" height="20"
+                                   horzTextAlign="center" />
+                            <label text=" Pericias" width="48" height="20" g-dyn-width-txt="true" />
+                     </flowLayout>
+              </rectangle>
+       </rectangle>
+
+       <scrollBox align="top"
+              name="modalPericiasBar"
+              height="240"
+              padding="{left=5,right=5,top=5,bottom=5}"
+              margins="{bottom=5}">
+       </scrollBox>
+</popup>

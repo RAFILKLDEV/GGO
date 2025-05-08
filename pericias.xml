@@ -1,19 +1,47 @@
 <layout align="left"
-    width="200">
+    width="165">
     <rectangle align="top"
         height="30"
         color="#2E2E2E"
         padding="{left=5,right=5,bottom=5,top=5}"
         margins="{bottom=10}">
         <label align="client"
-            text="Pericias"
+            text="Pericias Gerais"
             margins="{left=5}"
         />
     </rectangle>
     <rectangle align="top"
         height="30"
         color="#2E2E2E"
-        padding="{left=5,right=5,bottom=5,top=5}">
+        padding="{left=5,right=5,bottom=5,top=5}"
+        name="pericia1Rectangle">
+        <event name="onMouseEnter">
+            self.pericia1Rectangle.color = "#3A3A3A";
+        </event>
+        <event name="onMouseLeave">
+            self.pericia1Rectangle.color = "#2E2E2E";
+        </event>
+        <event name="onDblClick">
+            local mesa = Firecast.getRoomOf(sheet);
+            local chat = mesa.chat;
+
+            local function treinamento(pericia)
+
+            if pericia == "D" then
+            return "Destreinado"
+            elseif pericia == "T" then
+            return "Treinado"
+            elseif pericia == "E" then
+            return "Especialista"
+            elseif pericia == "M" then
+            return "Mestre"
+            elseif pericia == "L" then
+            return "Lenda"
+            end
+            end
+
+            chat:rolarDados("1d20" .. sheet.per_iniciativa, "Iniciativa - " .. treinamento(sheet.pericia1Tr));
+        </event>
         <layout align="left"
             width="18">
             <path align="client"
@@ -67,92 +95,8 @@
             width="130"
             margins="{left=5}" />
     </rectangle>
+
     
-    <rectangle align="top"
-        height="30"
-        color="#2E2E2E"
-        padding="{left=5,right=5,bottom=5,top=5}">
-        <layout align="left"
-            width="18">
-            <path align="client"
-                mode="fit"
-                name="pericia3"
-                color="darkRed"
-                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-
-            <label align="client"
-                name="pericia3Tr"
-                field="pericia3Tr"
-                fontSize="10"
-                horzTextAlign="center"
-                fontStyle="bold" />
-        </layout>
-        <label align="left"
-            field="per_fortitude"
-            width="25"
-            margins="{left=5}" />
-        <label align="left"
-            text="Fortitude"
-            width="130"
-            margins="{left=5}" />
-    </rectangle>
-    <rectangle align="top"
-        height="30"
-        color="#2E2E2E"
-        padding="{left=5,right=5,bottom=5,top=5}">
-        <layout align="left"
-            width="18">
-            <path align="client"
-                mode="fit"
-                name="pericia4"
-                color="darkRed"
-                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-
-            <label align="client"
-                name="pericia4Tr"
-                field="pericia4Tr"
-                fontSize="10"
-                horzTextAlign="center"
-                fontStyle="bold" />
-        </layout>
-        <label align="left"
-            field="per_reflexo"
-            width="25"
-            margins="{left=5}" />
-        <label align="left"
-            text="Reflexo"
-            width="130"
-            margins="{left=5}" />
-    </rectangle>
-    <rectangle align="top"
-        height="30"
-        color="#2E2E2E"
-        padding="{left=5,right=5,bottom=5,top=5}"
-        margins="{bottom=10}">
-        <layout align="left"
-            width="18">
-            <path align="client"
-                mode="fit"
-                name="pericia5"
-                color="darkRed"
-                data="M100 10 L200 10 L240 60 L240 140 L200 190 L100 190 L60 140 L60 60 Z" />
-
-            <label align="client"
-                name="pericia5Tr"
-                field="pericia5Tr"
-                fontSize="10"
-                horzTextAlign="center"
-                fontStyle="bold" />
-        </layout>
-        <label align="left"
-            field="per_vontade"
-            width="25"
-            margins="{left=5}" />
-        <label align="left"
-            text="Vontade"
-            width="130"
-            margins="{left=5}" />
-    </rectangle>
     <rectangle align="top"
         height="30"
         color="#2E2E2E"

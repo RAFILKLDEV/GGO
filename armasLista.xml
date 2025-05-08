@@ -1,38 +1,33 @@
 <base>
-    <f1
-        equipamento="Arma"
-        nome="m4a1"
-        apelido="M4A1"
-        tipo="Metralhadora"
-        alcance="60m"
-        dano="1d10"
-        danoTipo="Balistico"
-        modos="Automatica, Rajada, Unico"
-        durabilidade="300"
-        carregador="30"
-        municao="7.62mm"
-        volume="2"
-        tracos="{'Duas Mãos'}"
-        aprimoramentos="{'Silenciosa'}"
-        preco="3000"
-        descricao="Uma Arma Foda"
-    >,
-    <f2
-    equipamento="Arma"
-        nome="m4a1"
-        apelido="M4A1"
-        tipo="Metralhadora"
-        alcance="60m"
-        dano="1d10"
-        danoTipo="Balistico"
-        modos="Automatica, Rajada, Unico"
-        durabilidade="300"
-        carregador="30"
-        municao="7.62mm"
-        volume="2"
-        tracos="{'Duas Mãos'}"
-        aprimoramentos="{'Silenciosa'}"
-        preco="3000"
-        descricao="Uma Arma Foda"
-    >
+
+    <!-- Armas Brancas -->
+    <f1 equipamento="Arma" nome="faca_combate" apelido="Faca de Combate" tipo="Arma Branca" alcance="1m" mira="Manual" dano="1d6" danoTipo="Corte" modos="" durabilidade="100" carregador="0" municao="Nenhuma" volume="1" tracos="{'Leve'}" aprimoramentos="{'Afiada'}" preco="150" descricao="Faca militar de combate corpo a corpo"/>
+    <f2 equipamento="Arma" nome="katana" apelido="Katana" tipo="Arma Branca" alcance="1.5m" mira="Manual" dano="1d8" danoTipo="Corte" modos="" durabilidade="200" carregador="0" municao="Nenhuma" volume="2" tracos="{'Duas Mãos'}" aprimoramentos="{'Balanceada'}" preco="600" descricao="Espada japonesa tradicional, extremamente afiada"/>
+    <f3 equipamento="Arma" nome="machadinha" apelido="Machadinha" tipo="Arma Branca" alcance="1m" mira="Manual" dano="1d8" danoTipo="Corte" modos="" durabilidade="120" carregador="0" municao="Nenhuma" volume="2" tracos="{'Leve'}" aprimoramentos="{'Lâmina Dupla'}" preco="300" descricao="Machadinha de arremesso ou combate direto"/>
+
+    <!-- Pistolas -->
+    <f4 equipamento="Arma" nome="glock17" apelido="Glock 17" tipo="Pistola" alcance="40m" mira="Ferro" dano="1d6" danoTipo="Balistico" modos="" durabilidade="250" carregador="17" municao="9mm" volume="1" tracos="{'Leve'}" aprimoramentos="{'Silenciosa'}" preco="1200" descricao="Pistola semiautomática confiável"/>
+    <f5 equipamento="Arma" nome="desertEagle" apelido="Desert Eagle" tipo="Pistola" alcance="50m" mira="Ferro" dano="1d10" danoTipo="Balistico" modos="" durabilidade="200" carregador="7" municao=".50 AE" volume="2" tracos="{'Potente'}" aprimoramentos="{'Cano Longo'}" preco="3000" descricao="Pistola de alto calibre, muito poderosa"/>
+    <f6 equipamento="Arma" nome="beretta92" apelido="Beretta 92" tipo="Pistola" alcance="40m" mira="Ferro" dano="1d6" danoTipo="Balistico" modos="" durabilidade="220" carregador="15" municao="9mm" volume="1" tracos="{'Leve'}" aprimoramentos="{'Empunhadura Ergonômica'}" preco="1100" descricao="Pistola padrão de uso militar e policial"/>
+
+    <!-- Espingardas -->
+    <f7 equipamento="Arma" nome="spas12" apelido="SPAS-12" tipo="Espingarda" alcance="30m" mira="Ferro" dano="2d6" danoTipo="Balistico" modos="Automatica" durabilidade="180" carregador="8" municao="12 Gauge" volume="3" tracos="{'Duas Mãos'}" aprimoramentos="{'Recuo Reduzido'}" preco="2500" descricao="Espingarda tática semiautomática"/>
+    <f8 equipamento="Arma" nome="remington870" apelido="Remington 870" tipo="Espingarda" alcance="25m" mira="Ferro" dano="2d6" danoTipo="Balistico" modos="" durabilidade="200" carregador="6" municao="12 Gauge" volume="3" tracos="{'Duas Mãos'}" aprimoramentos="{'Cano Curto'}" preco="1800" descricao="Espingarda de bombeamento confiável"/>
+    <f9 equipamento="Arma" nome="mossberg500" apelido="Mossberg 500" tipo="Espingarda" alcance="28m" mira="Ferro" dano="2d6" danoTipo="Balistico" modos="" durabilidade="190" carregador="5" municao="12 Gauge" volume="3" tracos="{'Duas Mãos'}" aprimoramentos="{'Mira Reflex'}" preco="1700" descricao="Espingarda usada em combate e caça"/>
+
+    <!-- Metralhadoras -->
+    <f10 equipamento="Arma" nome="m249" apelido="M249 SAW" tipo="Metralhadora" alcance="100m" mira="Óptica" dano="1d10" danoTipo="Balistico" modos="Automatica" durabilidade="300" carregador="100" municao="5.56mm" volume="4" tracos="{'Duas Mãos'}" aprimoramentos="{'Bipé'}" preco="5000" descricao="Metralhadora leve de suporte"/>
+    <f11 equipamento="Arma" nome="pkm" apelido="PKM" tipo="Metralhadora" alcance="120m" mira="Ferro" dano="1d12" danoTipo="Balistico" modos="Automatica" durabilidade="320" carregador="100" municao="7.62mm" volume="4" tracos="{'Pesada'}" aprimoramentos="{'Reforçada'}" preco="5500" descricao="Metralhadora russa confiável e potente"/>
+    <f12 equipamento="Arma" nome="rpk" apelido="RPK" tipo="Metralhadora" alcance="90m" mira="Ferro" dano="1d10" danoTipo="Balistico" modos="Automatica" durabilidade="280" carregador="75" municao="7.62mm" volume="4" tracos="{'Duas Mãos'}" aprimoramentos="{'Cano Longo'}" preco="4800" descricao="Versão metralhadora da AK"/>
+
+    <!-- Rifles -->
+    <f13 equipamento="Arma" nome="ak47" apelido="AK-47" tipo="Rifle" alcance="80m" mira="Ferro" dano="1d10" danoTipo="Balistico" modos="Automatica" durabilidade="300" carregador="30" municao="7.62mm" volume="3" tracos="{'Duas Mãos'}" aprimoramentos="{'Resistente'}" preco="3500" descricao="Rifle de assalto durável e popular"/>
+    <f14 equipamento="Arma" nome="m16" apelido="M16" tipo="Rifle" alcance="100m" mira="Óptica" dano="1d10" danoTipo="Balistico" modos="" durabilidade="280" carregador="30" municao="5.56mm" volume="3" tracos="{'Duas Mãos'}" aprimoramentos="{'Mira Acoplada'}" preco="3600" descricao="Rifle padrão do exército dos EUA"/>
+    <f15 equipamento="Arma" nome="scarH" apelido="SCAR-H" tipo="Rifle" alcance="110m" mira="Óptica" dano="1d12" danoTipo="Balistico" modos="Automatica" durabilidade="300" carregador="20" municao="7.62mm" volume="3" tracos="{'Duas Mãos'}" aprimoramentos="{'Silenciosa'}" preco="6000" descricao="Rifle modular de elite"/>
+
+    <!-- Explosivos -->
+    <f16 equipamento="Arma" nome="granada_m67" apelido="Granada M67" tipo="Explosivo" alcance="15m" mira="Manual" dano="3d6" danoTipo="Explosão" modos="" durabilidade="1" carregador="1" municao="Explosiva" volume="1" tracos="{'Descartável'}" aprimoramentos="{'Fragmentação'}" preco="500" descricao="Granada de mão de uso militar"/>
+    <f17 equipamento="Arma" nome="c4" apelido="C4" tipo="Explosivo" alcance="0m" mira="Manual" dano="5d6" danoTipo="Explosão" modos="" durabilidade="1" carregador="1" municao="Explosiva" volume="2" tracos="{'Detonador Remoto'}" aprimoramentos="{'Alto Impacto'}" preco="2000" descricao="Explosivo plástico de uso tático"/>
+    <f18 equipamento="Arma" nome="molotov" apelido="Coquetel Molotov" tipo="Explosivo" alcance="10m" mira="Manual" dano="2d6" danoTipo="Fogo" modos="" durabilidade="1" carregador="1" municao="Inflamável" volume="1" tracos="{'Descartável'}" aprimoramentos="{'Incendiário'}" preco="100" descricao="Artefato explosivo improvisado"/>
+
 </base>

@@ -1,0 +1,44 @@
+<popup name="modalAcoes"
+       backOpacity="0.3"
+       width="705"
+       height="400">
+       <flowLayout name="tipoAcoesBar" align="top" autoHeight="true"
+              orientation="horizontal" lineSpacing="5"
+              horzAlign="center" margins="{top=80}">
+
+              <rectangle
+                     height="150"
+                     color="blue"
+                     width="150"
+                     padding="{top=5,bottom=5}"
+                     margins="{right=50}"
+                     strokeJoin="round" strokeColor="darkBlue"
+                     strokeSize="10">
+                     <label align="client"
+                            text="Bonus" fontSize="21" horzTextAlign="center" />
+                     <event name="onClick">
+                            self.modalAcoes:close()
+                            self.modalAcoesLivres:show()
+                     </event>
+              </rectangle>
+
+              <rectangle
+                     height="250"
+                     width="250"
+                     color="red"
+                     padding="{top=5,bottom=5}" strokeJoin="round" strokeColor="darkRed"
+                     strokeSize="10">
+                     <label align="client"
+                            text="Ação" fontSize="30" horzTextAlign="center" />
+                     <event name="onClick">
+                            self.modalAcoes:close()
+                            self.modalAcoesAtributos:show()
+                     </event>
+              </rectangle>
+       </flowLayout>
+
+       <flowLayout name="acoesEscolhidasBar" align="top" autoHeight="true"
+              orientation="horizontal" lineSpacing="5"
+              horzAlign="center" margins="{top=5}"
+       />
+</popup>

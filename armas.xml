@@ -1,20 +1,40 @@
-<tab title="Armas" height="600">
-    <layout align="top" height="30" padding="{left=5,top=5,right=5,bottom=5}">
-        <button align="top" text="Adicionar Arma" />
-    </layout>
+<tab title="Armas" height="400">
+    <scrollBox align="client">
 
-    <layout align="top" height="400" padding="{left=5,top=5,right=5,bottom=5}">
-        <label align="top" height="20" text="Nome da Arma" horzTextAlign="center" />
-        <image align="top" height="100" />
-        <layout align="top" height="30">
-            <rectangle align="left" width="60" color="darkRed"
-                padding="{left=5,top=5,right=5,bottom=5}">
-                <label align="client" text="Rifle" horzTextAlign="center" />
-            </rectangle>
-            <rectangle align="left" width="60" color="darkRed"
-                padding="{left=5,top=5,right=5,bottom=5}" margins="{left=5}">
-                <label align="client" text="Rifle" horzTextAlign="center" />
-            </rectangle>
+        <layout align="top" height="30" padding="{left=5,top=5,right=5,bottom=5}">
+            <button align="top" text="Adicionar Arma" onClick="self.modalArmas:show()" />
         </layout>
-    </layout>
+
+        <recordList name="inventarioRcl" field="inventario" templateForm="inventario" align="top"
+            height="410" autoHeight="true">
+            <event name="onItemAdded">
+
+                node.caracteristicasArma = {sheet.alcanceArmaModal, sheet.miraArmaModal,
+                sheet.danoArmaModal, sheet.modosArmaModal, sheet.durabilidadeArmaModal, sheet.aprimoramentosArmaModal,
+                sheet.precoArmaModal}
+                
+                node.miraArma = "Mira: " .. sheet.miraArmaModal
+                node.danoArma = "Dano: " .. sheet.danoArmaModal
+                node.modoArma = "Modo: " .. sheet.modosArmaModal
+                node.apelidoArma = sheet.apelidoArmaModal
+                node.nomeArma = sheet.nomeArmaModal
+                node.tipoArma = sheet.tipoArmaModal
+                node.carregadorArma = "Carregador: " .. sheet.carregadorArmaModal .. " mun"
+                node.tipoDanoArma = sheet.tipoDanoArmaModal
+                node.imgArma = "imgs/armas/" .. node.nomeArma .. ".png"
+                node.alcanceArma = "Alcance: " .. sheet.alcanceArmaModal .. "m"
+
+                node.miraArma2 = sheet.miraArmaModal
+                node.danoArma2 = sheet.danoArmaModal
+                node.modoArma2 = sheet.modosArmaModal
+                node.apelidoArma2 = sheet.apelidoArmaModal
+                node.nomeArma2 = sheet.nomeArmaModal
+                node.tipoArma2 = sheet.tipoArmaModal
+                node.carregadorArma2 = sheet.carregadorArmaModal 
+                node.tipoDanoArma2 = sheet.tipoDanoArmaModal
+                node.imgArma2 = node.nomeArmaModal
+                node.alcanceArma2 = sheet.alcanceArmaModal
+            </event>
+        </recordList>
+    </scrollBox>
 </tab>

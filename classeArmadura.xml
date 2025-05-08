@@ -16,7 +16,9 @@
                     text="CA" />
                 <rectangle align="top"
                     height="30"
-                    color="orange">
+                    color="#3A3A3A"
+                    strokeColor="orange"
+                    strokeSize="1">
                     <edit align="client"
                         fontSize="14"
                         horzTextAlign="center"
@@ -64,7 +66,9 @@
                     text="FORT" />
                 <rectangle align="top"
                     height="30"
-                    color="orange">
+                    color="#3A3A3A"
+                    strokeColor="orange"
+                    strokeSize="1">
                     <edit align="client"
                         fontSize="14"
                         horzTextAlign="center"
@@ -91,7 +95,9 @@
                     text="REF" />
                 <rectangle align="top"
                     height="30"
-                    color="orange">
+                    color="#3A3A3A"
+                    strokeColor="orange"
+                    strokeSize="1">
                     <edit align="client"
                         fontSize="14"
                         horzTextAlign="center"
@@ -118,7 +124,9 @@
                     text="VON" />
                 <rectangle align="top"
                     height="30"
-                    color="orange">
+                    color="#3A3A3A"
+                    strokeColor="orange"
+                    strokeSize="1">
                     <edit align="client"
                         fontSize="14"
                         horzTextAlign="center"
